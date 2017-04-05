@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html charset="http://www.thymeleaf.org">
-	<head>
-	</head>
-	<body>
-		<form th:action="login" method="POST">
-			<label>login</label>
-			<input type="text" name="username"/>
-			<label>mot de passe</label>
-			<input type="password" name="password"/>
-			<input type="submit" />
-		</form>
-	</body>
-</html>
+<meta charset="utf-8" />
+<form method="POST"  th:action="formasiga">
+	<md-content layout="column" class="md-no-momentum">
+	
+	    <md-input-container class="md-icon-float md-block">
+	      <label>Adresse e-mail ou mobile</label>
+	      <md-icon  style="display:inline-block;"><i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i></md-icon>
+	      <input type="text" name="username">
+	    </md-input-container>
+	    
+	    <md-input-container class="md-icon-float md-block">
+	      <label>Mot de passe</label>
+	      <md-icon  style="display:inline-block;"><i class="fa fa-key fa-2x" aria-hidden="true"></i></md-icon>
+	      <input type="text" name="password">
+	    </md-input-container>
+	    
+	    <div>
+	        <md-button type="submit">Connexion</md-button>
+	        <md-button><a ui-sref="inscription">Inscription</a></md-button>
+	    </div>
+		
+	</md-content>
+</form>

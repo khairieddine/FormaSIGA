@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html charset="http://www.thymeleaf.org" lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>formasiga</title>
+		
+		<script type="text/javascript" src="angularjs/angular.js" th:src="@{angularjs/angular.js}"></script>
+		<script type="text/javascript" src="angularjs/angular-ui-router.js" th:src="@{angularjs/angular-ui-router.js}"></script>
+		<script type="text/javascript" src="angularjs/angular-animate.js" th:src="@{angularjs/angular-animate.js}"></script>
+		<script type="text/javascript" src="angularjs/angular-aria.js" th:src="@{angularjs/angular-aria.js}"></script>
+		<script type="text/javascript" src="angularjs/angular-messages.js" th:src="@{angularjs/angular-messages.js}"></script>
+		<script type="text/javascript" src="angularjs/angular-material.js" th:src="@{angularjs/angular-material.js}"></script>
+		
+		<script type="text/javascript" src="js/formasiga.js" th:src="@{js/formasiga.js}"></script>
+		
+		<link rel="stylesheet" href="css/angular-material.css" th:href="@{css/angular-material.css}">
+		<link rel="stylesheet" href="css/style.angular-material.css" th:href="@{css/style.angular-material.css}">
+		<link rel="stylesheet" href="css/font-awesome.css" th:href="@{css/font-awesome.css}">
+		<link rel="stylesheet" href="css/style.formasiga.css" th:href="@{css/style.formasiga.css}">
+	</head>
+	<body ng-app="formasiga" ng-cloak>
+	  		<md-content class="md-padding container">
+ 			    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="menu" >
+				      <md-nav-item md-nav-click="goto('login')" name="login">
+				       <a ui-sref="login">Connexion</a>
+				      </md-nav-item>
+				      <md-nav-item md-nav-click="goto('inscription')" name="inscription">
+				        <a ui-sref="inscription">Inscription</a>
+				      </md-nav-item>
+			    </md-nav-bar>
+			    <div class="contenu md-whiteframe-1dp"  ui-view>
+			    </div>
+
+  			</md-content>
+	</body>
+</html>

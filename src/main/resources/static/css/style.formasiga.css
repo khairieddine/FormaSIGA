@@ -1,0 +1,25 @@
+body
+{
+	background-color: #f5f5f5;
+}
+container,
+md-content
+{
+	background-color: #f5f5f5;
+}
+
+.contenu md-content
+{
+	background-color: #fff;
+}
+.contenu
+{
+	background-color: #fff;
+	margin-top: 50px;
+	padding: 20px;
+}
+md-nav-bar.md-default-theme .md-nav-bar,
+md-nav-bar .md-nav-bar 
+{
+	background-color: #3f51b5;
+}

@@ -8,27 +8,29 @@ import javax.persistence.Id;
 @Entity
 public class Roles implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+	
 	@Id
-	private String nom;
+	private String role;
 	private String description;
 	
 	public Roles() 
 	{
 		super();
 	}
-	public Roles(String nom, String description) 
+	public Roles(String role, String description) 
 	{
 		super();
-		this.nom = nom;
+		this.role = role;
 		this.description = description;
 	}
 	public String getNom() 
 	{
-		return nom;
+		return role;
 	}
-	public void setNom(String nom) 
+	public void setNom(String role) 
 	{
-		this.nom = nom;
+		this.role = role;
 	}
 	public String getDescription() 
 	{

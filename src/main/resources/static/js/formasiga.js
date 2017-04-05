@@ -1,0 +1,63 @@
+var app = angular.module('formasiga',['ngMaterial','ui.router']);
+
+app.config(function($stateProvider, $urlRouterProvider) {
+
+	  $urlRouterProvider.otherwise("login");
+ 
+	  $stateProvider
+	  .state('login', {
+	      url: "",
+	      templateUrl: "/login",
+	      controller: "loginController"
+	    })
+	    .state('inscription', {
+	      url: "",
+	      templateUrl: "/inscription",
+	      controller: "inscriptionController"
+	    })
+	});
+
+app.controller("menu",["$scope","$http",function($scope,$http) {
+	
+	$scope.currentNavItem = 'login';
+
+}]);
+
+app.controller("loginController",["$scope","$http",function($scope,$http) {
+
+	console.log("loginController");
+	
+//	 $http({
+//	      method: 'GET',
+//	      url: 'http://localhost:8080/employe/listesEmployes'
+//	   }).then(function (success){
+//		   
+//		   $scope.listesEmployes = success.data;
+//
+//	   },function(error){
+//
+//	   });
+}]);
+
+app.controller("inscriptionController",["$scope","$http",function($scope,$http) {
+
+//	$scope.prieres = null;
+//	$scope.ajouter = function() {
+//		console.log($scope.prieres);
+//		$http({
+//		      method: 'POST',
+//		      headers: {'Content-Type': 'application/json'},
+//		      url: 'http://localhost:8080/khairieddine/prieres',
+//		      data: $scope.prieres
+//		   }).then(function (success){
+//			   
+//			
+//		   },function(error){
+//
+//		});
+//		
+//	}
+	
+	 
+	 
+}]);
