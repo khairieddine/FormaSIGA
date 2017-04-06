@@ -1,0 +1,41 @@
+.login
+{
+
+}
+.login > .login-form
+{
+	width: 450px;
+	height: 550px;
+	padding: 20px 25px 15px 25px;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    margin: auto;
+}
+.login > .login-form > h1
+{
+	text-align: center;
+	font-weight: 300;
+	font-family: Roboto,sans-serif;
+}
+.login > .login-form > hr
+{
+    margin-top: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.login > .login-form > hr.hr1
+{
+	margin-bottom: 50px;
+}
+.login > .login-form > hr.hr2
+{
+	margin-top: 30px;
+}
+.login > .login-form > div > p > a
+{
+	text-decoration: none;
+}
+.login > .login-form > div > p > a:hover
+{
+	text-decoration: underline;
+}

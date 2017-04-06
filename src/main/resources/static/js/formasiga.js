@@ -1,4 +1,4 @@
-var app = angular.module('formasiga',['ngMaterial','ui.router']);
+var app = angular.module('formasiga',['ngMaterial','ui.router','ngMessages']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -41,6 +41,8 @@ app.controller("loginController",["$scope","$http",function($scope,$http) {
 
 app.controller("inscriptionController",["$scope","$http",function($scope,$http) {
 
+	$scope.showHints = false;
+	$scope.villes = ["Jendouba","Bizerte","Tunis"];
 //	$scope.prieres = null;
 //	$scope.ajouter = function() {
 //		console.log($scope.prieres);
