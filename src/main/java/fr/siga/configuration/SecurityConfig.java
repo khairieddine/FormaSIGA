@@ -42,7 +42,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	@Override
 	protected void configure(HttpSecurity http) throws Exception 
 	{
+		try
+		{
 		http
+			.csrf().disable()
 			.authorizeRequests()
 				.antMatchers("/css/**","/js/**","/angularjs/**","/fonts/**","/images/**","/inscription","/login").permitAll() 
 				.anyRequest()
@@ -52,7 +55,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 				.loginPage("/formasiga")
 					.permitAll()
 					.defaultSuccessUrl("/index.html");
-			
+		}
+		catch(Exception e)
+		{
+			System.out.print(e.getMessage());
+		}	
 	}
 	
 }

@@ -17,9 +17,41 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	    })
 	});
 
-app.controller("menu",["$scope","$http",function($scope,$http) {
+app.controller("menuPage", function ($scope, $timeout, $mdSidenav) {
 	
-	$scope.currentNavItem = 'login';
+    $scope.toggleLeft = buildToggler('left');
+    $scope.toggleRight = buildToggler('right');
+
+    function buildToggler(componentId) {
+      return function() {
+        $mdSidenav(componentId).toggle();
+      };
+    }
+});
+
+app.controller("lanceur",["$scope","$http",function($scope,$http) {
+	
+	$scope.changerMenu = function() {
+		
+	}
+	
+}]);
+
+app.controller("menuP",["$scope","$http",function($scope,$http) {
+	
+	$scope.menu = {};
+	
+	$http({
+	      method: 'GET',
+	      url: 'http://localhost:8080/menu'
+	   }).then(function (success){
+		   
+		   $scope.menu = success.data.menu;
+		   console.log($scope.menu);
+
+	   },function(error){
+
+	   });
 
 }]);
 

@@ -1,0 +1,5 @@
+insert into users(username,password,active) values("khairi","khairi",true);
+insert into users(username,password,active) values("oussama","oussama",true);
+insert into roles(role,description) values("admin","admin");
+insert into users_roles(users_username,roles_role) values("oussama","admin");
+	insert into users_roles(users_username,roles_role) values("oussama","ADMIN");

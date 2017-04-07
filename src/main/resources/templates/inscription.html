@@ -2,8 +2,7 @@
 <section class="inscription">
 	<div class="inscription-form  md-whiteframe-1dp">
 		<div>
-<!-- 			th:action="formasiga" -->
-			<form method="POST" name="employeForm">
+			<form method="POST" name="employeForm" enctype="multipart/form-data">
 				<md-content layout="column">
 					<h3>Renseignements obligatoires</h3>
 					
@@ -110,20 +109,34 @@
 						
 					</div>
 					
-					<md-input-container class="md-block" flex-gt-sm>
-						<div class="label-radio" style="display:inline-block;">Sex : </div>
+					<div layout-gt-sm="row">
+						<md-input-container class="md-block" flex-gt-sm>
+							<div class="label-radio" style="display:inline-block;">Sex : </div>
+							
+							<md-radio-group name="sex" ng-model="employe.sex" required style="display:inline-block;">
+					          	<md-radio-button value="homme" required class="md-primary" style="display:inline-block;">homme</md-radio-button>
+					          	<md-radio-button value="femme" class="md-primary" style="display:inline-block;">femme</md-radio-button>
+					        </md-radio-group>
+					        
+							 <div class="hint" ng-if="showHints"></div>
+					
+					          <div ng-messages="employeForm.sex.$error" ng-if="!showHints">
+					            <div ng-message="required">Ce champ est obligatoire.</div>
+					          </div>
+						</md-input-container>
 						
-						<md-radio-group name="sex" ng-model="employe.sex" required style="display:inline-block;">
-				          	<md-radio-button value="homme" required class="md-primary" style="display:inline-block;">homme</md-radio-button>
-				          	<md-radio-button value="femme" class="md-primary" style="display:inline-block;">femme</md-radio-button>
-				        </md-radio-group>
-				        
-						 <div class="hint" ng-if="showHints"></div>
-				
-				          <div ng-messages="employeForm.sex.$error" ng-if="!showHints">
-				            <div ng-message="required">Ce champ est obligatoire.</div>
-				          </div>
-					</md-input-container>
+						<div flex="5" hide-xs hide-sm>
+				        </div>
+
+				        <md-input-container class="md-block" flex-gt-sm>
+				            <label>Etat civil</label>
+				            <md-select name="etatCivil" ng-model="employe.etatCivil">
+					            <md-option ng-repeat="e in etat" value="{{e}}">
+					                {{e}}
+					            </md-option>
+				            </md-select>
+				       </md-input-container>
+					</div>
 
 					
 					<div layout-gt-sm="row">
@@ -143,7 +156,7 @@
 				        </div>
 
 				        <md-input-container class="md-block" flex-gt-sm>
-				            <label>Ville</label>
+				            <label>Lieu naissance</label>
 				            <md-select name="lieuNaissance" ng-model="employe.lieuNaissance">
 					            <md-option ng-repeat="ville in villes" value="{{ville}}">
 					                {{ville}}
@@ -152,6 +165,14 @@
 				       </md-input-container>
 						
 					</div>
+					
+					<md-input-container md-no-float class="md-icon-float md-block">
+				      	<input type="file" name="photo" ng-model="employe.photo">
+				    </md-input-container>
+				  
+				    
+				    <h3>Règles du site</h3>
+				    <div class="g-recaptcha" data-sitekey="6LcV7xsUAAAAALXM05naehZfeeBgfHnW8mzqTsL8"></div>
 					<md-checkbox name="licence" ng-model="employe.licence" required class="md-primary">
 			          J'ai lu les règles et j'accepte de les respecter.
 			        </md-checkbox>

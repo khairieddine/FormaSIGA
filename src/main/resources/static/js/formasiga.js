@@ -15,7 +15,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	      templateUrl: "/inscription",
 	      controller: "inscriptionController"
 	    })
+	    .state('images', {
+	      url: "",
+	      templateUrl: "/images",
+	      controller: "imagesController"
+	    })
 	});
+
+app.controller("imagesController",["$scope","$http",function($scope,$http) {
+	
+	
+
+}]);
 
 app.controller("menu",["$scope","$http",function($scope,$http) {
 	
@@ -43,6 +54,7 @@ app.controller("inscriptionController",["$scope","$http",function($scope,$http) 
 
 	$scope.showHints = false;
 	$scope.villes = ["Jendouba","Bizerte","Tunis"];
+	$scope.etat = ["Célibataire","Marié(e)","Divorcé(e)","Veuf/veuve"]
 //	$scope.prieres = null;
 //	$scope.ajouter = function() {
 //		console.log($scope.prieres);

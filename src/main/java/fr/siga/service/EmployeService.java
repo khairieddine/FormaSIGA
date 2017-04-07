@@ -30,24 +30,4 @@ public class EmployeService
 	{
 		return e.findAll();
 	}
-	
-	@RequestMapping(value="infos",method=RequestMethod.GET)
-	public Map<String,Object> getLogedUser(HttpSession session)
-	{
-		SecurityContext sc = (SecurityContext) session.getAttribute("SPRING_SECURITY_CONTEXT");
-		
-		String username = sc.getAuthentication().getName();
-		List<String>roles = new ArrayList<>();
-		for(GrantedAuthority ga:sc.getAuthentication().getAuthorities())
-		{
-			roles.add(ga.getAuthority());
-		}
-		
-		Map<String,Object> params =new HashMap<>();
-		params.put("username",username);
-		params.put("roles",roles);
-		
-		return params;
-		
-	}
 }
