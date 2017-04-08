@@ -16,7 +16,7 @@ public class Users implements Serializable
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	private String username;
+	private Long username;
 	private String password;
 	private Boolean active;
 	
@@ -28,24 +28,20 @@ public class Users implements Serializable
 	{
 		super();
 	}
-	public Users(String username, String password) 
+	public Users(Long username, String password, Boolean active) 
 	{
 		super();
 		this.username = username;
 		this.password = password;
+		this.active = active;
 	}
-	
-	public String getUsername() 
+	public Long getUsername() 
 	{
 		return username;
 	}
-	public void setUsername(String username) 
+	public void setUsername(Long username) 
 	{
 		this.username = username;
-	}
-	public String getPassword() 
-	{
-		return password;
 	}
 	public void setPassword(String password) 
 	{
@@ -67,6 +63,4 @@ public class Users implements Serializable
 	{
 		this.active = active;
 	}
-	
-	
 }

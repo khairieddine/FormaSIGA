@@ -25,19 +25,23 @@ app.controller("menuPage", function ($scope, $timeout, $mdSidenav) {
     function buildToggler(componentId) {
       return function() {
         $mdSidenav(componentId).toggle();
+        console.log($mdSidenav);
       };
     }
 });
 
 app.controller("lanceur",["$scope","$http",function($scope,$http) {
 	
+	$scope.mini = false;
+	
 	$scope.changerMenu = function() {
 		
+		$scope.mini = ($scope.mini) ? false : true;
 	}
 	
 }]);
 
-app.controller("menuP",["$scope","$http",function($scope,$http) {
+app.controller("menu",["$scope","$http",function($scope,$http) {
 	
 	$scope.menu = {};
 	

@@ -28,6 +28,7 @@ body
 
 	width: 250px;
     height: 100%;
+    transition: width .3s ease-in-out;
 	
     line-height: 1.42857143;
     color: #333;
@@ -37,6 +38,12 @@ body
     font-size: 14px;
 
     background: #1e282c;
+}
+.menu
+{
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 .menu li
 {
@@ -138,13 +145,14 @@ body
 .menu > nav > ul > li.item-menu > ul.sous-menu
  {
     background: #2c3b41;
-    display: none;
     padding-left: 5px;
-    transition: bottom .3s ease-in-out;
+    max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.8s ease-in-out;
  }
 .menu > nav > ul > li.item-menu:hover ul.sous-menu
 {
-    display: block;
+	max-height: 10000px;
 }
  .menu > nav > ul > li.item-menu > ul.sous-menu > li > a
  {
@@ -177,6 +185,7 @@ body
  }
  .container > .lanceur
  {
+ 	transition: width .3s ease-in-out;
     height: 50px;
     background-color: #3c8dbc;
     line-height: 50px;
@@ -232,25 +241,25 @@ body
 **                                              Style section 
 *
 ***************************************************************************************************************/
-/*.menu-demi
+.menuMini
 {
     width: 50px;
+    overflow: visible;
 }
-.menu > nav > .logo > p,
-.menu > nav > div.infos,
-.menu > nav > div.nom,
-.menu > nav > ul > li.item-menu > a > span
+.noneMini
 {
     display: none;
 }
-.menu > nav > ul > li.item-menu > ul.sous-menu
+.sousMenuMini
 {
     position: absolute;
     top:0;
     left:50px;
     width: 200px;
+    max-height: 100%;
+    transition: initial;
 }
- .container
+.containerMini
  {
     margin-left: 50px;
- }*/
+ }
