@@ -8,6 +8,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.apache.wss4j.common.crypto.PasswordEncryptor;
+
 
 @Entity
 @Table(name="users")

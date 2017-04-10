@@ -22,7 +22,7 @@ public class CompteService
 {
 	@RequestMapping(value="infos",method=RequestMethod.GET)
 	public Map<String,Object> getLogedUser(HttpSession session)
-	{
+	{/*
 		SecurityContext sc = (SecurityContext) session.getAttribute("SPRING_SECURITY_CONTEXT");
 		
 		String username = sc.getAuthentication().getName();
@@ -36,12 +36,13 @@ public class CompteService
 		params.put("username",username);
 		params.put("roles",roles);
 		return params;
-		
+	*/
+		return null;
 	}
 	
 	@RequestMapping(value="menu",method=RequestMethod.GET)
 	public Map<String,Object> getCompte(HttpSession session)
-	{		
+	{	/*	
 		SecurityContext sc = (SecurityContext) session.getAttribute("SPRING_SECURITY_CONTEXT");
 		
 		String username = sc.getAuthentication().getName();
@@ -58,11 +59,11 @@ public class CompteService
 				
 			}
 		}
-		
+		*/
 		Map<String,Object> params =new HashMap<>();
-		params.put("username",username);
+		//params.put("username",username);
 		params.put("avatar","");
-		params.put("roles",roles);
+		//params.put("roles",roles);
 		params.put("menu",MenuCompte.getMenuAdmin());
 		return params;
 	}

@@ -1,4 +1,4 @@
-var app = angular.module('formasiga',['ngMaterial','ui.router','ngMessages']);
+var app = angular.module('formasiga',['ngMaterial','ui.router','ngMessages','angularFileUpload']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -21,6 +21,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	      controller: "imagesController"
 	    })
 	});
+
+/*app.controller('uploader', function($scope, FileUploader) {
+    $scope.uploader = new FileUploader();
+});*/
 
 app.controller("imagesController",["$scope","$http",function($scope,$http) {
 	

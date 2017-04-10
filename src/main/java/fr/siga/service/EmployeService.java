@@ -27,21 +27,21 @@ public class EmployeService
 	@Autowired
 	private EmployeRepository er;
 	
-//	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
+	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
 	@RequestMapping(value="/listesEmployesPage",method=RequestMethod.GET)
 	public Page<Employe> listesEmployes(@RequestParam(name="page",defaultValue="1")int page,@RequestParam(name="size",defaultValue="10")int size)
 	{
 		return er.findAll(new PageRequest(page, size));
 	}
 	
-//	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
+	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
 	@RequestMapping(value="/listesEmployes",method=RequestMethod.GET)
 	public List<Employe> listesEmployes()
 	{
 		return er.findAll();
 	}
 	
-//	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
+	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
 	@RequestMapping(value="/employe/{id}",method=RequestMethod.GET)
 	public Optional<Employe> employe(@PathVariable("id")Long id)
 	{
@@ -54,7 +54,7 @@ public class EmployeService
 		return er.save(e);
 	}
 
-//	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})
+	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})
 	@RequestMapping(value="/employe/{id}",method=RequestMethod.PUT)
 	public Employe modifierEmploye(@RequestBody Employe e,@PathVariable("id")Long id)
 	{
@@ -62,21 +62,21 @@ public class EmployeService
 		return er.saveAndFlush(e);
 	}
 	
-//	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})
+	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})
 	@RequestMapping(value="/employe/{id}",method=RequestMethod.DELETE)
 	public void supprimerEmploye(@PathVariable("id")Long id)
 	{
 		er.delete(id);
 	}
 	
-//	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})
+	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})
 	@RequestMapping(value="/chercherEmployePage",method=RequestMethod.GET)
 	public Page<Employe> chercherEmployePage(@Param("x") String mc,@RequestParam(name="page",defaultValue="1")int page,@RequestParam(name="size",defaultValue="10")int size)
 	{
 		return er.chercherEmployePage("%"+mc+"%", new PageRequest(page, size));
 	}
 	
-//	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})
+	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})
 	@RequestMapping(value="/chercherEmploye",method=RequestMethod.GET)
 	public List<Employe> chercherEmploye(@Param("x") String mc)
 	{

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html charset="http://www.thymeleaf.org" lang="fr">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="fr">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,8 +13,17 @@
 		<script type="text/javascript" src="angularjs/angular-messages.js" th:src="@{angularjs/angular-messages.js}"></script>
 		<script type="text/javascript" src="angularjs/angular-material.js" th:src="@{angularjs/angular-material.js}"></script>
 		
-		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<script type="text/javascript" src='https://www.google.com/recaptcha/api.js' th:src="@{js/formasiga.js}"></script>
+		<!-- 
+		<script type="text/javascript" src="angularjs/ng-file-upload-shim.js" th:src="@{angularjs/ng-file-upload-shim.js}"></script>
+		<script type="text/javascript" src="angularjs/ng-file-upload.js" th:src="@{angularjs/ng-file-upload.js}"></script>
+		 -->
+		 
+		<script type="text/javascript" src="angularjs/angular-file-upload.js" th:src="@{angularjs/angular-file-upload.js}"></script>
+		
 		<script type="text/javascript" src="js/formasiga.js" th:src="@{js/formasiga.js}"></script>
+		<script type="text/javascript" src="angularjs/controllers.js" th:src="@{angularjs/controllers.js}"></script>
+		<script type="text/javascript" src="angularjs/directives.js" th:src="@{angularjs/directives.js}"></script>
 		
 		<link rel="stylesheet" href="css/angular-material.css" th:href="@{css/angular-material.css}">
 		<link rel="stylesheet" href="css/style.angular-material.css" th:href="@{css/style.angular-material.css}">
