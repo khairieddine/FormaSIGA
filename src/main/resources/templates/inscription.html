@@ -2,14 +2,13 @@
 <section class="inscription" xmlns:th="http://www.thymeleaf.org">
 	<div class="inscription-form  md-whiteframe-1dp">
 		<div>
-			<form method="POST" name="employeForm" enctype="multipart/form-data">
+			<form method="POST" name="employeForm" enctype="multipart/form-data" formnovalidate="novalidate">
 				<md-content layout="column">
 					<h3>Renseignements obligatoires</h3>
 					
 					<md-input-container md-no-float class="md-icon-float md-block">
 						<label>Tapez votre numéro de C.I.N (Carte d'Identité Nationale)</label>
-<!-- 				      	<md-icon  style="display:inline-block;"><i class="fa fa-id-card fa-2x" aria-hidden="true"></i></md-icon> -->
-				      	<input ng-model="employe.cin" name="cin" type="text" required ng-maxlength="8" ng-pattern="/^[0-9]{8}$/">
+				      	<input type="number" ng-model="employe.cin" name="cin" required ng-maxlength="8" ng-pattern="/^[0-9]{8}$/">
 				      	
 				      	<div class="hint" ng-if="showHints">votre cin doit t'être votre identifiant pour acceder au site.</div>
 				      	
@@ -24,11 +23,11 @@
 					
 						<md-input-container class="md-block" flex-gt-sm>
 				          <label>Tapez votre mot de passe</label>
-				          <input required name="password" ng-minlength="6" ng-model="employe.password" />
+				          <input type="password" ng-model="employe.motDePasse" name="motDePasse" required  ng-minlength="6"/>
 				
 				          <div class="hint" ng-if="showHints">Votre mot de passe qui vous permet de vous identifier pour bénéficier de ces services est personnel et confidentiel.</div>
 				
-				          <div ng-messages="employeForm.password.$error" ng-if="!showHints">
+				          <div ng-messages="employeForm.motDePasse.$error" ng-if="!showHints">
 				            <div ng-message="required">Ce champ est obligatoire.</div>
 				            <div ng-message="minlength">votre mot de passe est trop court ,<br>le mot de passe doit doit être d'au moins 6 caractères.</div>
 				          </div>
@@ -39,11 +38,11 @@
 
 				        <md-input-container class="md-block" flex-gt-sm>
 				          <label>Confirmez votre mot de passe</label>
-				          <input name="passwordConfirm" ng-model="employe.passwordConfirm" />
+				          <input type="password" ng-model="employeConfirm.motDePasseConfirm" name="motDePasseConfirm" />
 				
 				          <div class="hint" ng-if="showHints"></div>
 				
-				          <div ng-messages="employeForm.passwordConfirm.$error" ng-if="!showHints">
+				          <div ng-messages="employeForm.motDePasseConfirm.$error" ng-if="!showHints">
 				            
 				          </div>
 				        </md-input-container>
@@ -54,7 +53,7 @@
 					
 						<md-input-container class="md-block" flex-gt-sm>
 				          <label>Tapez votre adresse email</label>
-				          <input type="email" name="email"  ng-model="employe.email" required />
+				          <input type="email" ng-model="employe.email" name="email" required />
 				
 				          <div class="hint" ng-if="showHints"></div>
 				
@@ -68,7 +67,7 @@
 
 				        <md-input-container class="md-block" flex-gt-sm>
 				          <label>Confirmez votre adresse email</label>
-				          <input type="email" name="emailConfirm" ng-model="employe.emailConfirm" required />
+				          <input type="email"  ng-model="employeConfirm.emailConfirm"  name="emailConfirm" required />
 				
 				          <div class="hint" ng-if="showHints"></div>
 				
@@ -84,7 +83,7 @@
 					
 						<md-input-container class="md-block" flex-gt-sm>
 				          <label>Tapez votre nom</label>
-				          <input type="text" name="nom" ng-model="employe.nom" required />
+				          <input type="text"  ng-model="employe.nom" name="nom" required />
 				
 				          <div class="hint" ng-if="showHints"></div>
 				
@@ -111,16 +110,16 @@
 					
 					<div layout-gt-sm="row">
 						<md-input-container class="md-block" flex-gt-sm>
-							<div class="label-radio" style="display:inline-block;">Sex : </div>
+							<div class="label-radio" style="display:inline-block;">Sexe : </div>
 							
-							<md-radio-group name="sex" ng-model="employe.sex" required style="display:inline-block;">
+							<md-radio-group ng-model="employe.sexe"  name="sexe" required style="display:inline-block;">
 					          	<md-radio-button value="homme" required class="md-primary" style="display:inline-block;">homme</md-radio-button>
 					          	<md-radio-button value="femme" class="md-primary" style="display:inline-block;">femme</md-radio-button>
 					        </md-radio-group>
 					        
 							 <div class="hint" ng-if="showHints"></div>
 					
-					          <div ng-messages="employeForm.sex.$error" ng-if="!showHints">
+					          <div ng-messages="employeForm.sexe.$error" ng-if="!showHints">
 					            <div ng-message="required">Ce champ est obligatoire.</div>
 					          </div>
 						</md-input-container>
@@ -130,7 +129,7 @@
 
 				        <md-input-container class="md-block" flex-gt-sm>
 				            <label>Etat civil</label>
-				            <md-select name="etatCivil" ng-model="employe.etatCivil">
+				            <md-select ng-model="employe.etatCivil" name="etatCivil">
 					            <md-option ng-repeat="e in etat" value="{{e}}">
 					                {{e}}
 					            </md-option>
@@ -143,7 +142,7 @@
 					
 						<md-input-container class="md-block" flex-gt-sm>
 				          <div style="display:inline-block;">Date de naissance : </div>
-				          <md-datepicker name="dateNaissance" ng-model="employe.dateNaissance" md-placeholder="Entrer date" required  style="display:inline-block;"></md-datepicker>
+				          <md-datepicker ng-model="employe.dateNaissance" name="dateNaissance" md-placeholder="Entrer date" required  style="display:inline-block;"></md-datepicker>
 				
 				          <div class="hint" ng-if="showHints">Votre mot de passe qui vous permet de vous identifier pour bénéficier de ces services est personnel et confidentiel.</div>
 				
@@ -157,7 +156,7 @@
 
 				        <md-input-container class="md-block" flex-gt-sm>
 				            <label>Lieu naissance</label>
-				            <md-select name="lieuNaissance" ng-model="employe.lieuNaissance">
+				            <md-select ng-model="employe.lieuNaissance" name="lieuNaissance" >
 					            <md-option ng-repeat="ville in villes" value="{{ville}}">
 					                {{ville}}
 					            </md-option>
@@ -195,13 +194,16 @@
 				  
 				    
 				    <h3>Règles du site</h3>
+				    <!--
 				    <div class="g-recaptcha" data-sitekey="6LcV7xsUAAAAALXM05naehZfeeBgfHnW8mzqTsL8"></div>
-					<md-checkbox name="licence" ng-model="employe.licence" required class="md-primary">
+				     -->
+					<md-checkbox  ng-model="employeConfirm.licence" name="licence" required class="md-primary">
 			          J'ai lu les règles et j'accepte de les respecter.
 			        </md-checkbox>
 					<div class="md-block">
-					 	<md-button type="submit" style="display:inline-block;" class="md-raised md-primary">Terminer l'inscription</md-button>
+					 	<md-button type="submit" style="display:inline-block;" class="md-raised md-primary" ng-click="inscription()">Terminer l'inscription</md-button>
 					    <md-button type="reset" style="display:inline-block;" class="md-raised md-primary">Réinitialiser les champs</md-button>
+					    <md-button type="button" style="display:inline-block;" class="md-raised md-primary" ng-click="afficher()">afficher</md-button>
 					</div>
 					
 				</md-content>    

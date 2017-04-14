@@ -25,6 +25,8 @@ public class Employe implements Serializable
 	private Long id;
 	private String cin;
 	private String email;
+	private String username;
+	private String motDePasse;
 	
 	private String nom;
 	private String prenom;
@@ -44,11 +46,11 @@ public class Employe implements Serializable
 	private String poste;
 	
 	@ManyToOne
-	@JoinColumn(name="ID_DIRECTEUR_EMPLOYE")
+	@JoinColumn(name="EMPLOYE_ID_DIRECTEUR")
 	private Employe directeurEmploye;
 	
 	@ManyToMany
-	@JoinTable(name="EMPLOYES_GROUPES")
+	@JoinTable(name="EMPLOYE_GROUPE")
 	private Collection<Groupe> groupes;
 	
 	public Employe() 
@@ -56,26 +58,49 @@ public class Employe implements Serializable
 		super();
 	}
 
-	public Employe(String cin, String nom, String prenom, byte age, Date dateNaissance, String lieuNaissance,
-			String sex, String etatCivile, String photo, String adresse, int tele, String email, String compteBanquaire,
-			String poste, Employe directeurEmploye, Collection<Groupe> groupes) {
+	
+
+	public Employe(String cin, String email, String username, String motDePasse, String nom, String prenom, String sex,
+			String etatCivile, byte age, Date dateNaissance, String lieuNaissance, String photo, String adresse,
+			int tele, String compteBanquaire, String poste, Employe directeurEmploye) {
 		super();
 		this.cin = cin;
+		this.email = email;
+		this.username = username;
+		this.motDePasse = motDePasse;
 		this.nom = nom;
 		this.prenom = prenom;
+		this.sex = sex;
+		this.etatCivile = etatCivile;
 		this.age = age;
 		this.dateNaissance = dateNaissance;
 		this.lieuNaissance = lieuNaissance;
-		this.sex = sex;
-		this.etatCivile = etatCivile;
 		this.photo = photo;
 		this.adresse = adresse;
 		this.tele = tele;
-		this.email = email;
 		this.compteBanquaire = compteBanquaire;
 		this.poste = poste;
 		this.directeurEmploye = directeurEmploye;
-		this.groupes = groupes;
+	}
+
+	public String getUsername() 
+	{
+		return username;
+	}
+	
+	public void setUsername(String username) 
+	{
+		this.username = username;
+	}
+	
+	public String getMotDePasse() 
+	{
+		return motDePasse;
+	}
+
+	public void setMotDePasse(String motDePasse) 
+	{
+		this.motDePasse = motDePasse;
 	}
 
 	public Long getId() {

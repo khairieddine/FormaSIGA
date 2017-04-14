@@ -2,6 +2,8 @@ package fr.siga.service;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,13 +21,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.siga.dao.EmployeRepository;
+import fr.siga.dao.RolesRepository;
+import fr.siga.dao.UsersRepository;
 import fr.siga.entites.Employe;
+import fr.siga.entites.Roles;
+import fr.siga.entites.Users;
 
 @RestController
 public class EmployeService 
 {
 	@Autowired
 	private EmployeRepository er;
+	@Autowired
+	private UsersRepository ur;
+	@Autowired
+	private RolesRepository rr;
 	
 	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
 	@RequestMapping(value="/listesEmployesPage",method=RequestMethod.GET)
@@ -35,8 +45,8 @@ public class EmployeService
 	}
 	
 	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
-	@RequestMapping(value="/listesEmployes",method=RequestMethod.GET)
-	public List<Employe> listesEmployes()
+	@RequestMapping(value="/listeEmployes",method=RequestMethod.GET)
+	public List<Employe> listeEmployes()
 	{
 		return er.findAll();
 	}
@@ -48,10 +58,36 @@ public class EmployeService
 		return er.findOne(id);
 	}
 
-	@RequestMapping(value="/employe",method=RequestMethod.POST)
+	@RequestMapping(value="/inscrire",method=RequestMethod.POST)
 	public Employe ajouterEmploye(@RequestBody Employe e)
 	{
-		return er.save(e);
+		
+		
+		Employe emp = er.save(e);
+		System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkk");
+		/*Users user = new Users(emp.getId(),emp.getMotDePasse(),true);
+		ur.save(user);
+		
+		
+		
+		Optional<Users> ui = ur.findOne(emp.getId());
+		Optional<Roles> ri = rr.findOne("EMPLOYE");
+		
+		ui.get().getRoles().add(ri.get());
+		ui.get().setEmploye(emp);*/
+		
+		/*System.out.println("-------------------- Uers --------------------");
+		System.out.println(ui.get().getUsername());
+		System.out.println(ui.get().getPassword());
+		System.out.println(ui.get().getActive());
+		System.out.println(ui.get().getRoles());
+		System.out.println("-------------------- Roles --------------------");
+		System.out.println(ri.get().getRole());
+		System.out.println(ri.get().getDescription());	*/	
+		
+		//ur.save(ui.get());
+
+		return emp;
 	}
 
 	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})

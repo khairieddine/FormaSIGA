@@ -17,10 +17,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-/*@Configuration
+@Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled=true)
-@EnableConfigurationProperties*/
+@EnableConfigurationProperties
 public class SecurityConfig extends WebSecurityConfigurerAdapter
 {
 	@Autowired
@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 				.usersByUsernameQuery(query1)
 				.authoritiesByUsernameQuery(query2)
 				.rolePrefix("ROLE_")
-				.passwordEncoder(new BCryptPasswordEncoder());
+				/*.passwordEncoder(new BCryptPasswordEncoder())*/;
 		} 
 		catch (Exception e) 
 		{
@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 		http
 			.csrf().disable()
 			.authorizeRequests()
-				.antMatchers("/css/**","/js/**","/angularjs/**","/fonts/**","/images/**","/inscription","/login","/upload").permitAll() 
+				.antMatchers("/css/**","/js/**","/angularjs/**","/fonts/**","/images/**","/inscription","/login","/upload","/inscrire").permitAll() 
 				.anyRequest()
 				.authenticated()
 				.and()

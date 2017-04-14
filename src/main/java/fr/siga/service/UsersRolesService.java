@@ -55,11 +55,21 @@ public class UsersRolesService
 	
 	//@Secured(value={"ROLE_ADMIN"})
 	@RequestMapping(value="ajouterRoleAUser",method=RequestMethod.POST)
-	public void ajouterRoleAUser(Long username,String role)
+	public void ajouterRoleAUser(@RequestParam Long username,@RequestParam String role)
 	{
-		Users ui = ur.getOne(username);
-		Roles ri = rr.getOne(role);
-		ui.getRoles().add(ri);
-		ur.save(ui);
+		Optional<Users> ui = ur.findOne(username);
+		Optional<Roles> ri = rr.findOne(role);
+		
+		/*System.out.println("-------------------- Uers --------------------");
+		System.out.println(ui.get().getUsername());
+		System.out.println(ui.get().getPassword());
+		System.out.println(ui.get().getActive());
+		System.out.println(ui.get().getRoles());
+		System.out.println("-------------------- Roles --------------------");
+		System.out.println(ri.get().getRole());
+		System.out.println(ri.get().getDescription());*/	
+		
+		ui.get().getRoles().add(ri.get());
+		ur.save(ui.get());
 	}
 }

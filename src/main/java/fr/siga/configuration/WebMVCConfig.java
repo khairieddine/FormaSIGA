@@ -1,6 +1,8 @@
 package fr.siga.configuration;
 
 
+import java.util.Properties;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -27,4 +29,28 @@ public class WebMVCConfig extends WebMvcConfigurerAdapter
 		registry.addViewController("/403").setViewName("403");
 		registry.addViewController("/upload").setViewName("upload");
 	}
+	
+	@Bean
+	public <JavaMailSenderImpl> JavaMailSenderImpl ch()
+	{
+		return null;
+	}
+	/*
+	@Bean
+	public JavaMailSenderImpl javaMailSenderImpl()
+	{
+		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+		mailSender.setHost("smtp.gmail.com");
+		mailSender.setPort(587);
+		
+		mailSender.setUsername("arvindraivns06@gmail.com");
+		
+		mailSender.setPassword("password");
+		Properties prop = mailSender.getJavaMailProperties();
+		prop.put("mail.transport.protocol", "smtp");
+		prop.put("mail.smtp.auth", "true");
+		prop.put("mail.smtp.starttls.enable", "true");
+		prop.put("mail.debug", "true");
+		return mailSender;
+	}*/
 }

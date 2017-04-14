@@ -7,8 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Question implements Serializable
@@ -23,24 +25,29 @@ public class Question implements Serializable
 	private String reponseJuste;
 	
 	@ManyToOne
-	@JoinColumn(name="ID_THEME")
+	@JoinColumn(name="QUESTION_ID_THEME")
 	private Theme theme;
 	
-	@ManyToMany(mappedBy="questions")
-	private Collection<Test> tests;
-
+	//@ManyToMany(mappedBy="questions")
+	//private Collection<Test> tests;
+	
+	@OneToMany
+	@JoinColumn(name="ID_QUESTION_SUGGESTIONS")
+	private Collection<Suggestion> suggestions;
+	
 	public Question() 
 	{
 		super();
 	}
 
-	public Question(String question, float difficulte, String reponseJuste, Collection<Test> tests) 
+	public Question(String question, float difficulte, String reponseJuste,Theme theme,Collection<Suggestion> suggestions) 
 	{
 		super();
 		this.question = question;
 		this.difficulte = difficulte;
 		this.reponseJuste = reponseJuste;
-		this.tests = tests;
+		this.theme = theme;
+		this.suggestions = suggestions;
 	}
 
 	public Long getId() {
@@ -74,12 +81,32 @@ public class Question implements Serializable
 	public void setReponseJuste(String reponseJuste) {
 		this.reponseJuste = reponseJuste;
 	}
-
+	/*
 	public Collection<Test> getTests() {
 		return tests;
 	}
 
 	public void setTests(Collection<Test> tests) {
 		this.tests = tests;
-	}	
+	}
+	*/
+	public Theme getTheme() 
+	{
+		return theme;
+	}
+
+	public void setTheme(Theme theme) 
+	{
+		this.theme = theme;
+	}
+	
+	public Collection<Suggestion> getSuggestions() 
+	{
+		return suggestions;
+	}
+
+	public void setSuggestions(Collection<Suggestion> suggestions) 
+	{
+		this.suggestions = suggestions;
+	}		
 }

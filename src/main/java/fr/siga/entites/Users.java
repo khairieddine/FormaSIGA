@@ -1,11 +1,14 @@
 package fr.siga.entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.apache.wss4j.common.crypto.PasswordEncryptor;
@@ -24,7 +27,11 @@ public class Users implements Serializable
 	
 	@ManyToMany
 	@JoinTable(name="USERS_ROLES")
-	private Collection<Roles> roles;
+	private Collection<Roles> roles = new ArrayList<Roles>();
+	
+	@OneToOne
+	@JoinColumn(name="ID_USER_EMPLOYE")
+	private Employe employe;
 	
 	public Users() 
 	{
@@ -65,4 +72,17 @@ public class Users implements Serializable
 	{
 		this.active = active;
 	}
+	public Employe getEmploye() 
+	{
+		return employe;
+	}
+	public void setEmploye(Employe employe) 
+	{
+		this.employe = employe;
+	}
+	public String getPassword() // supprimer ça
+	{
+		return password;
+	}
+	
 }

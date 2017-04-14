@@ -27,11 +27,11 @@ public abstract class Test implements Serializable
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name="ID_TEST_THEME")
+	@JoinColumn(name="TEST_ID_THEME")
 	private Theme theme;
 	
 	@ManyToMany
-	@JoinTable(name="QUESTIONS_TESTS")
+	@JoinTable(name="TEST_QUESTION")
 	private Collection<Question> questions;
 	private float score;
 	
@@ -40,7 +40,7 @@ public abstract class Test implements Serializable
 		super();
 	}
 
-	public Test(Theme theme, Collection<Question> questions, float score) 
+	public Test(Theme theme, float score) 
 	{
 		super();
 		this.theme = theme;

@@ -22,10 +22,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	    })
 	});
 
-/*app.controller('uploader', function($scope, FileUploader) {
-    $scope.uploader = new FileUploader();
-});*/
-
 app.controller("imagesController",["$scope","$http",function($scope,$http) {
 	
 	
@@ -57,25 +53,25 @@ app.controller("loginController",["$scope","$http",function($scope,$http) {
 app.controller("inscriptionController",["$scope","$http",function($scope,$http) {
 
 	$scope.showHints = false;
+	$scope.employe = {};
 	$scope.villes = ["Jendouba","Bizerte","Tunis"];
-	$scope.etat = ["Célibataire","Marié(e)","Divorcé(e)","Veuf/veuve"]
-//	$scope.prieres = null;
-//	$scope.ajouter = function() {
-//		console.log($scope.prieres);
-//		$http({
-//		      method: 'POST',
-//		      headers: {'Content-Type': 'application/json'},
-//		      url: 'http://localhost:8080/khairieddine/prieres',
-//		      data: $scope.prieres
-//		   }).then(function (success){
-//			   
-//			
-//		   },function(error){
-//
-//		});
-//		
-//	}
+	$scope.etat = ["Célibataire","Marié(e)","Divorcé(e)","Veuf/veuve"];
 	
-	 
-	 
+	$scope.inscription = function() {
+		alert("inscription");
+		console.log($scope.employe);
+		$http({
+		      method: 'POST',
+		      headers: {'Content-Type': 'application/json'},
+		      url: 'http://localhost:8080/inscrire',
+		      data: $scope.employe
+		      
+		   }).then(function (success){
+			   console.log("http://localhost:8080/inscription:success");
+			   //$scope.prieres = success.data;
+
+		   },function(error){
+			   console.log("http://localhost:8080/inscription:error");
+		});
+	}
 }]);

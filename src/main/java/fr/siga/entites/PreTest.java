@@ -19,15 +19,15 @@ public class PreTest extends Test implements Serializable
 		super();
 	}
 
-	public PreTest(Theme theme, Collection<Question> questions, float score) 
+	public PreTest(Theme theme, float score) 
 	{
-		super(theme, questions, score);
+		super(theme, score);
 
 	}
 
 	public PreTest(Theme theme, Collection<Question> questions, float score, Date date) 
 	{
-		super(theme, questions, score);
+		super(theme, score);
 		this.date = date;
 	}
 

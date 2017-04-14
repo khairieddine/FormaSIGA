@@ -16,8 +16,8 @@ public class TestAFroid  extends Test implements Serializable
 		super();
 	}
 
-	public TestAFroid(Theme theme, Collection<Question> questions, float score) 
+	public TestAFroid(Theme theme, float score) 
 	{
-		super(theme, questions, score);
+		super(theme, score);
 	}	
 }

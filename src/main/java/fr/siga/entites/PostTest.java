@@ -20,14 +20,14 @@ public class PostTest extends Test implements Serializable
 		super();
 	}
 
-	public PostTest(Theme theme, Collection<Question> questions, float score) 
+	public PostTest(Theme theme, float score) 
 	{
-		super(theme, questions, score);
+		super(theme, score);
 	}
 
-	public PostTest(Theme theme, Collection<Question> questions, float score, Date date) 
+	public PostTest(Theme theme, float score, Date date) 
 	{
-		super(theme, questions, score);
+		super(theme, score);
 		this.date = date;
 	}
 
