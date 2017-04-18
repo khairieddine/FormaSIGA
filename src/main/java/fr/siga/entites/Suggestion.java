@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Suggestion implements Serializable
@@ -21,22 +19,6 @@ public class Suggestion implements Serializable
 	private String suggestion;
 	
 	private boolean validite;
-	
-	/*@ManyToOne
-	@JoinColumn(name="SUGGESTION_ID_QUESTION")
-	private Question question;*/
-
-	public Suggestion() 
-	{
-		super();
-	}
-
-	public Suggestion(String suggestion, boolean validite) 
-	{
-		super();
-		this.suggestion = suggestion;
-		this.validite = validite;
-	}
 
 	public Long getId() 
 	{
@@ -67,16 +49,4 @@ public class Suggestion implements Serializable
 	{
 		this.validite = validite;
 	}
-/*
-	public Question getQuestion() 
-	{
-		return question;
-	}
-
-	public void setQuestion(Question question) 
-	{
-		this.question = question;
-	}*/
-	
-	
 }

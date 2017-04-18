@@ -2,6 +2,7 @@ package fr.siga.entites;
 
 import java.io.Serializable;
 import java.util.Collection;
+
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
@@ -10,14 +11,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="TYPE_TEST",discriminatorType=DiscriminatorType.STRING,length=15)
+
+@JsonTypeInfo(use=JsonTypeInfo.Id.NAME,include=JsonTypeInfo.As.PROPERTY,property="typeTest")
+@JsonSubTypes({
+		@Type(name="PRE_TEST",value=PreTest.class),
+		@Type(name="POST_TEST",value=PostTest.class),
+		@Type(name="TEST_A_FROID",value=TestAFroid.class),
+})
+
 public abstract class Test implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -26,27 +38,14 @@ public abstract class Test implements Serializable
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
-	@JoinColumn(name="TEST_ID_THEME")
+	private float score;
+	
+	@OneToOne
 	private Theme theme;
 	
 	@ManyToMany
 	@JoinTable(name="TEST_QUESTION")
 	private Collection<Question> questions;
-	private float score;
-	
-	public Test() 
-	{
-		super();
-	}
-
-	public Test(Theme theme, float score) 
-	{
-		super();
-		this.theme = theme;
-		this.questions = questions;
-		this.score = score;
-	}
 
 	public Long getId() {
 		return id;
@@ -56,10 +55,18 @@ public abstract class Test implements Serializable
 		this.id = id;
 	}
 
+	public float getScore() {
+		return score;
+	}
+
+	public void setScore(float score) {
+		this.score = score;
+	}
+	//@JsonIgnore
 	public Theme getTheme() {
 		return theme;
 	}
-
+	//@JsonSetter
 	public void setTheme(Theme theme) {
 		this.theme = theme;
 	}
@@ -70,13 +77,5 @@ public abstract class Test implements Serializable
 
 	public void setQuestions(Collection<Question> questions) {
 		this.questions = questions;
-	}
-
-	public float getScore() {
-		return score;
-	}
-
-	public void setScore(float score) {
-		this.score = score;
 	}
 }

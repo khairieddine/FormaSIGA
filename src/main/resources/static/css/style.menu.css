@@ -1,49 +1,16 @@
-*
-{
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-
-    margin: 0;
-    padding: 0;
-}
-body
-{
-    background-color: #f5f5f5;
-}
 /**************************************************************************************************************
 *
 **                                              Style section menu
 *
 ***************************************************************************************************************/
-.menu
+.menu > *
 {
+    margin: 0;
+    padding: 0;
+    
     -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
             box-sizing: border-box;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-	width: 250px;
-    height: 100%;
-    transition: width .3s ease-in-out;
-	
-    line-height: 1.42857143;
-    color: #333;
-
-    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-
-    background: #1e282c;
-}
-.menu
-{
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
 }
 .menu li
 {
@@ -53,28 +20,12 @@ body
 {
     text-decoration: none;
 }
-.menu > nav > .logo
-{
-    height: 50px;
-    font-size: 18px;
-    color: #fff;
-    -webkit-transition: width .3s ease-in-out;
-         -o-transition: width .3s ease-in-out;
-            transition: width .3s ease-in-out;
-
-    font-size: 20px;
-    line-height: 50px;
-    text-align: center;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    overflow: hidden;
-    background-color: #367fa9;
-}
-.menu > nav > div.infos
+.menu > .infos
 {
     height: 150px;
     position: relative;
 }
-.menu > nav > div.infos > div.infos-bar
+.menu > .infos > .infos-bar
 {
     height: 40px;
     width: 100%;
@@ -83,7 +34,7 @@ body
     position: absolute;
     bottom: 0;
 }
-.menu > nav > div.infos > div.infos-images
+.menu > .infos > .infos-images
 {
     width: 100px;
     height: 100px;
@@ -97,169 +48,328 @@ body
     border-radius: 3px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, .07);
 }
-.menu > nav > div.infos > div.infos-images > img
+.menu > .infos > .infos-images > img
 {
     width: 100%;
     height: 100%;
 }
-.menu > nav > div.nom
+.menu > .nom
 {
-    color: #4b646f;
+    background-color: #1a2226;
     color: #367fa9;
-    background: #1a2226;
     padding: 10px 25px 10px 15px;
     font-size: 13px;
 }
-.menu > nav > ul > li.item-menu
+.menu > .option-menu
+{
+	/*overflow: hidden;*/
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.menu > .option-menu
+{
+    display: flex;
+    flex-direction: column;
+}
+.menu > .option-menu > .item-menu
 {
     position: relative;
+    flex-grow: 1;
     color: #4b646f;
     background: #1a2226;
 }
-.menu > nav > ul > li.item-menu > a
+.menu > .option-menu > .item-menu > a
 {
+	position:relative;
     display: block;
     padding: 12px 5px 12px 15px;
     border-left: 3px solid transparent;
     color: #b8c7ce;
  }
- .menu > nav > ul > li.item-menu > a > .fa
+ .menu > .option-menu > .item-menu > a > .fa
  {
     margin-right: 10px;
  }
- .menu > nav > ul > li.item-menu > a:hover
+ /*.menu > .option-menu > .item-menu > a:hover*/
+ .menu > .option-menu > .activeItemMenu > a
  {
     color: #fff;
     background: #1e282c;
     border-left-color: #3c8dbc;
  }
-  .menu > nav > ul > li.item-menu > a:hover span > .fa:before
-  {
+ /* .menu > .option-menu > .item-menu > a:hover span > .fa:before*/
+ .menu > .option-menu > .activeItemMenu span > .fa:before
+ {
     content: "\f107";
-  }
- .menu > nav > ul > li.item-menu > a > span > .fa
+ }
+ .menu > .option-menu > .item-menu > a > span > .fa
  {
     margin-right: 10px;
  }
 
-.menu > nav > ul > li.item-menu > ul.sous-menu
+.menu > .option-menu > .item-menu > ul.sous-menu
  {
     background: #2c3b41;
+    display: none;
     padding-left: 5px;
-    max-height: 0;
-	overflow: hidden;
-	transition: max-height 0.8s ease-in-out;
+    transition: bottom .3s ease-in-out;
  }
-.menu > nav > ul > li.item-menu:hover ul.sous-menu
+/*.menu > .option-menu > .item-menu:hover ul.sous-menu*/
+.menu > .option-menu > .activeItemMenu ul.sous-menu
 {
-	max-height: 10000px;
+    display: block;
 }
- .menu > nav > ul > li.item-menu > ul.sous-menu > li > a
+ .menu > .option-menu > .item-menu > ul.sous-menu > li > a
  {
     display: block;
     padding: 5px 5px 5px 15px;
     white-space: nowrap;
     color: #8aa4af;
  }
- .menu > nav > ul > li.item-menu > ul.sous-menu > li > a:hover
+ /*.menu > .option-menu > .item-menu > ul.sous-menu > li > a:hover*/
+ .menu > .option-menu > .item-menu > ul.sous-menu > .activeItemSousMenu > a
 {
     color :#fff;
 }
-.menu > nav > ul > li.item-menu > ul.sous-menu > li > a:hover .fa:before
+/*.menu > .option-menu > .item-menu > ul.sous-menu > li > a:hover .fa:before*/
+ .menu > .option-menu > .item-menu > ul.sous-menu > .activeItemSousMenu > a .fa:before
 {
     content: "\f111";
     color: #fff;
 }
-.menu > nav > ul > li.item-menu > ul.sous-menu > li > a > .fa
+.menu > .option-menu > .item-menu > ul.sous-menu > li > a > .fa
 {
     margin-right: 10px;
 }
 /**************************************************************************************************************
 *
-**                                              Style section container
-*
-***************************************************************************************************************/
- .container
- {
-    margin-left: 250px;
- }
- .container > .lanceur
- {
- 	transition: width .3s ease-in-out;
-    height: 50px;
-    background-color: #3c8dbc;
-    line-height: 50px;
-    color:#fff;
- }
-.container > .lanceur:after
-{
-    content: "";
-    display: block;
-    clear: both;
-    display: none;
-}
-.container > .lanceur > .btn-menu
-{
-    float: left;
-    height: 100%;
-    width: 45px;
-    text-align: center;
-    line-height: inherit;
-}
-.container > .lanceur > .param-menu
-{
-    float: right;
-    height: 100%;
-    width: 40px;
-    text-align: center;
-    line-height: inherit;
-}
-.container > .lanceur > .btn-menu:hover,
-.container > .lanceur > .param-menu:hover
-{
-    background-color: #367fa9;
-}
-.container > .lanceur > .options-menu
-{
-    height: 100%;
-    float: right;
-    line-height: inherit;
-}
-
-.container > .lanceur > .options-menu > .menu-extension
-{
-    position: absolute;
-    top:50px;
-    right: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #222d32;
-    display: none;
-}
-/**************************************************************************************************************
-*
-**                                              Style section 
+**                                              Style section menu-demi
 *
 ***************************************************************************************************************/
 .menuMini
 {
-    width: 50px;
-    overflow: visible;
+    width: 50px !important;
+}
+.menu-demi
+{
+    width: 50px !important;
 }
 .noneMini
 {
-    display: none;
+    display: none !important;
 }
 .sousMenuMini
 {
-    position: absolute;
-    top:0;
-    left:50px;
-    width: 200px;
-    max-height: 100%;
-    transition: initial;
+    position: absolute !important;
+    top:0 !important;
+    left:50px !important;
+    width: 200px !important;
+    z-index: 2;
 }
-.containerMini
- {
-    margin-left: 50px;
- }
+.logoMini
+{
+    display: none !important;
+}
+/**************************************************************************************************************
+*
+**                                              Style section menu-lanceur
+*
+***************************************************************************************************************/
+.menu-lanceur > .logo
+{
+    width: 250px;
+    height: inherit;
+    line-height: inherit;
+    text-align: inherit;
+    
+    background-color: #367fa9;
+    /*
+    background-color: #3b5998;
+    background: linear-gradient(white, #1e282c);
+    background-image: linear-gradient(#4e69a2, #3b5998);
+    background: linear-gradient(white, #3b5998);
+    background: #0070ba;
+    */
+    -webkit-transition: width .3s ease-in-out;
+         -o-transition: width .3s ease-in-out;
+            transition: width .3s ease-in-out;
+ 
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+}
+.menu-lanceur > .toogle-menu
+{
+    width: 50px;
+    height: inherit;
+    line-height: inherit;
+    text-align: inherit;
+}
+.menu-lanceur > .lanceur
+{
+	line-height: inherit;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+.menu-lanceur > .lanceur > .profil
+{
+	position:relative;
+	line-height: inherit;
+	display: flex;
+	align-items: center;
+	padding: 0 10px;
+}
+.menu-lanceur > .lanceur > .profil *
+{
+	box-sizing: border-box;
+}
+.menu-lanceur > .lanceur > .profil >.image
+{
+	width: 35px;
+    height: 35px;
+    border-radius: 50%;
+	overflow: hidden;
+	margin-right: 10px;
+}
+.menu-lanceur > .lanceur > .profil > .image > img
+{
+	width: 100%;
+	height: 100%;
+}
+.menu-lanceur > .lanceur > .profil >.identifiant
+{
+	font-size: 15px;
+}
+.menu-lanceur > .lanceur > .profil > .menu-utilisateur
+{
+	position: absolute;
+	top:100%;
+	right:-25px;
+	
+	display:none;
+	
+	width: 300px;
+	background-color: #fff;
+	z-index: 4;
+}
+.menu-lanceur > .lanceur > .profil > .menu-utilisateur::before
+{
+    content: "";
+    display: block;
+    
+    position: absolute;
+    top: -10px;
+    right:40px;
+    
+    border-width: 0px 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #f9f9f9 transparent;
+    
+    z-index: 10;
+}
+.menu-lanceur > .lanceur > .profil:hover .menu-utilisateur
+{
+	display: block;
+}
+.menu-lanceur > .lanceur > .profil > .menu-utilisateur > .info
+{
+	position:relative;
+	height:100px;
+	/*background-color: #009cde;
+    background-image: radial-gradient(circle farthest-side at center bottom, #009cde, #003087 125%);
+    background-color: #f6f7f9;*/
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #e5e5e5;
+}
+.menu-lanceur > .lanceur > .profil > .menu-utilisateur > .info > .info-image
+{
+	position:absolute;
+	top:30px;
+	left:10px;
+	width: 100px;
+	height: 100px;
+	background-color: #1e282c;
+	border:solid 4px #fff;
+	border-radius: 3px;
+}
+.menu-lanceur > .lanceur > .profil > .menu-utilisateur > .info > .info-image > img
+{
+	width: 100%;
+	height: 100%;
+}
+.menu-lanceur > .lanceur > .profil > .menu-utilisateur > .options
+{
+	border-top: 1px solid #e5e5e5;
+	background-color:#f6f7f9;
+	margin-top:60px;
+}
+.menu-lanceur > .lanceur > .profil > .menu-utilisateur > .options > .md-button
+{
+	width:100%;
+	height: 45px;
+	display: block;
+	
+	margin: 0;
+	text-transform: none;
+}
+.menu-lanceur > .lanceur > .profil > .menu-utilisateur > .options > .md-button > a
+{
+	display:block;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	line-height:45px;
+	text-align: left;
+	color: #1d2129;
+	padding: 0 10px;
+}
+.menu-lanceur > .lanceur > .profil > .menu-utilisateur > .options > .md-button > a > .fa
+{
+	margin-right: 10px;
+}
+.menu-lanceur > .lanceur > .btn
+{
+    width: 45px;
+    height: inherit;
+    line-height: inherit;
+    text-align: inherit;
+}
+.menu-lanceur > .lanceur > .btn > a
+{
+	width: inherit;
+    height: inherit;
+    line-height: inherit;
+    text-align: inherit;
+    color:#fff;
+}
+.menu-lanceur > .toogle-menu > .fa,
+.menu-lanceur > .lanceur > .btn > .fa,
+.menu-lanceur > .lanceur > .btn > a > .fa
+{   
+    width: inherit;
+    height: inherit;
+    line-height: inherit;
+    text-align: inherit;
+}
+.menu-lanceur > .toogle-menu:hover,
+.menu-lanceur > .lanceur > .profil:hover,
+.menu-lanceur > .lanceur > .btn:hover,
+.menu-lanceur > .lanceur > .btn > a > .fa:hover
+{
+    background-color: #367fa9;
+    color:#fff;
+}
+/**************************************************************************************************************
+*
+**                                              Style section menu-option
+*
+***************************************************************************************************************/
+.menu-lanceur > .menu-option > .fixed
+{
+	position: fixed;
+	top:50px;
+	right : 0;
+	width: 250px;
+	height: 100%;
+	z-index: 3;
+}

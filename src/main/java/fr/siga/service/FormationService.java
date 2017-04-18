@@ -11,47 +11,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.siga.dao.ThemeRepository;
-import fr.siga.entites.Theme;
+import fr.siga.dao.FormationRepository;
+import fr.siga.entites.Formation;
 
 @RestController
-public class ThemeService 
+public class FormationService 
 {
 	@Autowired
-	private ThemeRepository tr;
+	private FormationRepository fr;
 	
 	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})
-	@RequestMapping(value="/theme",method=RequestMethod.GET)
-	public List<Theme> listeThemes() 
+	@RequestMapping(value="/formation",method=RequestMethod.GET)
+	public List<Formation> listeFormations() 
 	{
-		return tr.findAll();
+		return fr.findAll();
 	}
 
 	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})
-	@RequestMapping(value="/theme/{id}",method=RequestMethod.GET)
-	public Optional<Theme> theme(@PathVariable("id")Long id) 
+	@RequestMapping(value="/formation/{id}",method=RequestMethod.GET)
+	public Optional<Formation> formation(@PathVariable("id")Long id) 
 	{	
-		return tr.findOne(id);
+		return fr.findOne(id);
 	}
 
 	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
-	@RequestMapping(value="/theme",method=RequestMethod.POST)
-	public Theme ajoutetTheme(@RequestBody Theme t) 
+	@RequestMapping(value="/formation",method=RequestMethod.POST)
+	public Formation ajoutetFormation(@RequestBody Formation f) 
 	{
-		return tr.save(t);
+		return fr.save(f);
 	}
 
 	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
-	@RequestMapping(value="/theme/{id}",method=RequestMethod.PUT)
-	public Theme modifierTheme(@RequestBody Theme t,@PathVariable("id")Long id)
+	@RequestMapping(value="/formation/{id}",method=RequestMethod.PUT)
+	public Formation modifierFormation(@RequestBody Formation f,@PathVariable("id")Long id)
 	{
-		return tr.saveAndFlush(t);
+		return fr.saveAndFlush(f);
 	}
 	
 	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
-	@RequestMapping(value="/theme/{id}",method=RequestMethod.DELETE)
-	public void supprimerTheme(@PathVariable("id")Long id)
+	@RequestMapping(value="/formation/{id}",method=RequestMethod.DELETE)
+	public void supprimerFormation(@PathVariable("id")Long id)
 	{
-		tr.delete(id);
+		fr.delete(id);
 	}
 }

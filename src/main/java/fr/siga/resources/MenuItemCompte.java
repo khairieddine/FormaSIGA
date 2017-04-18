@@ -6,6 +6,8 @@ import java.util.List;
 
 public class MenuItemCompte  implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+	
 	private String iconMenu;
 	private String lienMenu;
 	private String textMenu;

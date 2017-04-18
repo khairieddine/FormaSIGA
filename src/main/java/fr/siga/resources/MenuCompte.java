@@ -6,6 +6,8 @@ import java.util.List;
 
 public class MenuCompte implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+	
 	private static List<MenuItemCompte> menuAdmin = new ArrayList<MenuItemCompte>();
 	private static List<MenuItemCompte> menuChef = new ArrayList<MenuItemCompte>();
 	private static List<MenuItemCompte> menuResponsable = new ArrayList<MenuItemCompte>();
@@ -25,10 +27,10 @@ public class MenuCompte implements Serializable
 		MenuItemCompte menuAdmin3 = new MenuItemCompte("fa fa-newspaper-o","#","menu admin 3",sousMenuAdmin);
 		MenuItemCompte menuAdmin4 = new MenuItemCompte("fa fa-newspaper-o","#","menu admin 4",sousMenuAdmin);
 		
-		menuAdmin.add(menuAdmin1);
-		menuAdmin.add(menuAdmin2);
-		menuAdmin.add(menuAdmin3);
-		menuAdmin.add(menuAdmin4);
+		menuEmploye.add(menuAdmin1);
+		menuEmploye.add(menuAdmin2);
+		menuEmploye.add(menuAdmin3);
+		menuEmploye.add(menuAdmin4);
 	}
 
 	public static List<MenuItemCompte> getMenuAdmin() 

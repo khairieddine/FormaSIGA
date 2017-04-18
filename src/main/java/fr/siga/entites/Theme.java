@@ -18,48 +18,37 @@ public class Theme implements Serializable
 
 	private String nom;
 	private String description;
-	
-	public Theme() 
-	{
-		super();
-	}
-
-	public Theme(String nom, String description) 
-	{
-		super();
-		this.nom = nom;
-		this.description = description;
-	}
-
-	public Long getId() 
-	{
+	/*
+	@OneToOne(mappedBy="theme")
+	private Test test;
+	*/
+	public Long getId() {
 		return id;
 	}
-
-	public void setId(Long id) 
-	{
+	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public String getNom() 
-	{
+	public String getNom() {
 		return nom;
 	}
-
-	public void setNom(String nom) 
-	{
+	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
-	public String getDescription() 
-	{
+	public String getDescription() {
 		return description;
 	}
-
-	public void setDescription(String description) 
-	{
+	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+	/*
+	@JsonIgnore
+	public Test getTest() {
+		return test;
+	}
+	@JsonSetter
+	public void setTest(Test test) {
+		this.test = test;
+	}
+	*/
 	
 }

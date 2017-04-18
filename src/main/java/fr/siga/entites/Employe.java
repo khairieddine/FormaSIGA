@@ -25,16 +25,22 @@ public class Employe implements Serializable
 	private Long id;
 	private String cin;
 	private String email;
-	private String username;
+	private String identifiant;
 	private String motDePasse;
 	
 	private String nom;
 	private String prenom;
-	private String sex;
+	private String sex; //sexe
 	private String etatCivile;
 	private byte age;
 	private Date dateNaissance;
 	private String lieuNaissance;
+	/*
+	private String nationalite;
+	private String lieuResidence;
+	private String diplome;
+	*/
+	//private Collection<Theme> profession;
 	
 	
 	private String photo;
@@ -60,13 +66,13 @@ public class Employe implements Serializable
 
 	
 
-	public Employe(String cin, String email, String username, String motDePasse, String nom, String prenom, String sex,
+	public Employe(String cin, String email, String identifiant, String motDePasse, String nom, String prenom, String sex,
 			String etatCivile, byte age, Date dateNaissance, String lieuNaissance, String photo, String adresse,
 			int tele, String compteBanquaire, String poste, Employe directeurEmploye) {
 		super();
 		this.cin = cin;
 		this.email = email;
-		this.username = username;
+		this.identifiant = identifiant;
 		this.motDePasse = motDePasse;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -83,14 +89,14 @@ public class Employe implements Serializable
 		this.directeurEmploye = directeurEmploye;
 	}
 
-	public String getUsername() 
+	public String getIdentifiant() 
 	{
-		return username;
+		return identifiant;
 	}
 	
-	public void setUsername(String username) 
+	public void setIdentifiant(String identifiant) 
 	{
-		this.username = username;
+		this.identifiant = identifiant;
 	}
 	
 	public String getMotDePasse() 

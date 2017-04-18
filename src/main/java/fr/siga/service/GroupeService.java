@@ -11,47 +11,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.siga.dao.ThemeRepository;
-import fr.siga.entites.Theme;
+import fr.siga.dao.GroupeRepository;
+import fr.siga.entites.Groupe;
 
 @RestController
-public class ThemeService 
+public class GroupeService 
 {
 	@Autowired
-	private ThemeRepository tr;
+	private GroupeRepository gr;
 	
 	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})
-	@RequestMapping(value="/theme",method=RequestMethod.GET)
-	public List<Theme> listeThemes() 
+	@RequestMapping(value="/groupe",method=RequestMethod.GET)
+	public List<Groupe> listeGroupes() 
 	{
-		return tr.findAll();
+		return gr.findAll();
 	}
 
 	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF","ROLE_EMPLOYE"})
-	@RequestMapping(value="/theme/{id}",method=RequestMethod.GET)
-	public Optional<Theme> theme(@PathVariable("id")Long id) 
+	@RequestMapping(value="/groupe/{id}",method=RequestMethod.GET)
+	public Optional<Groupe> groupe(@PathVariable("id")Long id) 
 	{	
-		return tr.findOne(id);
+		return gr.findOne(id);
 	}
 
 	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
-	@RequestMapping(value="/theme",method=RequestMethod.POST)
-	public Theme ajoutetTheme(@RequestBody Theme t) 
+	@RequestMapping(value="/groupe",method=RequestMethod.POST)
+	public Groupe ajoutetGroupe(@RequestBody Groupe g) 
 	{
-		return tr.save(t);
+		return gr.save(g);
 	}
 
 	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
-	@RequestMapping(value="/theme/{id}",method=RequestMethod.PUT)
-	public Theme modifierTheme(@RequestBody Theme t,@PathVariable("id")Long id)
+	@RequestMapping(value="/groupe/{id}",method=RequestMethod.PUT)
+	public Groupe modifierGroupe(@RequestBody Groupe g,@PathVariable("id")Long id)
 	{
-		return tr.saveAndFlush(t);
+		return gr.saveAndFlush(g);
 	}
 	
 	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
-	@RequestMapping(value="/theme/{id}",method=RequestMethod.DELETE)
-	public void supprimerTheme(@PathVariable("id")Long id)
+	@RequestMapping(value="/groupe/{id}",method=RequestMethod.DELETE)
+	public void supprimerGroupe(@PathVariable("id")Long id)
 	{
-		tr.delete(id);
+		gr.delete(id);
 	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,36 +20,35 @@ public class SuggestionService
 	@Autowired
 	private SuggestionRepository sr;
 	
-	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
-	@RequestMapping(value="/listeSuggestions",method=RequestMethod.GET)
-	public List<Suggestion> listeSuggestions()
+	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
+	@RequestMapping(value="/suggestion",method=RequestMethod.GET)
+	public List<Suggestion> listeSuggestions() 
 	{
 		return sr.findAll();
 	}
-	
-	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
+
+	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
 	@RequestMapping(value="/suggestion/{id}",method=RequestMethod.GET)
-	public Optional<Suggestion> suggestion(@PathVariable("id")Long id)
-	{
+	public Optional<Suggestion> suggestion(@PathVariable("id")Long id) 
+	{	
 		return sr.findOne(id);
 	}
-	
-	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
+
+	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
 	@RequestMapping(value="/suggestion",method=RequestMethod.POST)
-	public Suggestion ajouterSuggestion(@RequestBody Suggestion s)
+	public Suggestion ajoutetSuggestion(@RequestBody Suggestion s) 
 	{
 		return sr.save(s);
 	}
-	
-	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
+
+	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
 	@RequestMapping(value="/suggestion/{id}",method=RequestMethod.PUT)
 	public Suggestion modifierSuggestion(@RequestBody Suggestion s,@PathVariable("id")Long id)
 	{
-		s.setId(id);
 		return sr.saveAndFlush(s);
 	}
 	
-	//@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
+	@Secured(value={"ROLE_ADMIN","ROLE_RESPONSABLE","ROLE_CHEF"})
 	@RequestMapping(value="/suggestion/{id}",method=RequestMethod.DELETE)
 	public void supprimerSuggestion(@PathVariable("id")Long id)
 	{
