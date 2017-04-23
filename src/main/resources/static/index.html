@@ -22,9 +22,11 @@
 		<link rel="stylesheet" type="text/css" href="css/style.index.css">
 		<link rel="stylesheet" type="text/css" href="css/style.menu.css">
 		
-		<link rel="icon" type="image/x-icon"  ng-href="images/icones/favicon2.ico">
+		<link rel="stylesheet" type="text/css" href="css/style.etablissement.css">
+		
+		<link rel="icon" type="image/x-icon"  href="images/icones/favicon.ico">
 	</head>
-	<body ng-app="app" ng-cloak ng-controller="lanceur">
+	<body ng-app="app" ng-cloak ng-controller="lanceur"  id="popupContainer">
 	        <!-- Start section menu-lanceur -->
             <nav class="menu-lanceur" ng-controller="menuOption">
                 <div class="logo" ng-class="{logoMini: mini}">
@@ -94,7 +96,7 @@
                     </div>
                     <ul class="option-menu">
 	                    <li class="item-menu" ng-class="{activeItemMenu:activeItem}" ng-controller="itemMenu" ng-repeat="m in menu">
-							<a href="{{m.lienMenu}}"  ng-click="activeItemMenu()">
+							<a ng-click="activeItemMenu()">
 								<i class="{{m.iconMenu}}" aria-hidden="true"></i>
 								<span ng-class="{noneMini: mini}">{{m.textMenu}}</span>
 								<span ng-class="{noneMini: mini}" class="item-menu-none" ng-if="m.sousMenu">
@@ -115,7 +117,7 @@
                 <div class="container">
                    
                     <!-- Start section container-vues -->
-                    <section class="container-vues" ui-view>
+                    <section class="container-vues" ui-view layout="row" layout-align="center start">
                         vues
                     </section>
                     <!-- Start section container-vues -->

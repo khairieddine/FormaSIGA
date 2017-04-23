@@ -1,1 +1,33 @@
-<h1>etablissementsLister</h1>
+<!-- Start section etablissement-lister -->
+<section class="etablissement-lister md-whiteframe-1dp" flex="80">
+	<md-toolbar class="md-theme-indigo titre-section">
+        <h1 class="md-toolbar-tools"><i class="fa fa-list" aria-hidden="true"></i>Liste des établissements</h1>
+    </md-toolbar>
+	<md-content class="liste" layout="column">
+		<table flex="100">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Adresse</th>
+					<th>ville</th>
+					<th>Téléphone</th>
+					<th>Fax</th>
+					<th>Adresse email</th>
+					<th>Site Web</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="e in listeEtablissements">
+					<td>{{e.nom}}</td>
+					<td>{{e.adresse}}</td>
+					<td>{{e.ville}}</td>
+					<td>{{e.tele}}</td>
+					<td>{{e.fax}}</td>
+					<td>{{e.email}}</td>
+					<td>{{e.siteWeb}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</md-content>
+</section>
+<!-- End section etablissement-lister -->
