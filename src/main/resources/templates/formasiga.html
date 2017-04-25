@@ -12,12 +12,6 @@
 		<script type="text/javascript" th:src="@{angularjs/angular-aria.js}"></script>
 		<script type="text/javascript" th:src="@{angularjs/angular-messages.js}"></script>
 		<script type="text/javascript" th:src="@{angularjs/angular-material.js}"></script>
-		
-		<script type="text/javascript" th:src="@{js/formasiga.js}"></script>
-		<!-- 
-		<script type="text/javascript" src="angularjs/ng-file-upload-shim.js" th:src="@{angularjs/ng-file-upload-shim.js}"></script>
-		<script type="text/javascript" src="angularjs/ng-file-upload.js" th:src="@{angularjs/ng-file-upload.js}"></script>
-		 -->
 		 
 		<script type="text/javascript" th:src="@{angularjs/angular-file-upload.js}"></script>
 		
@@ -32,8 +26,10 @@
 		<link rel="stylesheet" th:href="@{css/style.formasiga.css}">
 		<link rel="stylesheet" th:href="@{css/style.login.css}">
 		<link rel="stylesheet" th:href="@{css/style.inscription.css}">
+		
+		<link rel="icon" type="image/x-icon"  th:href="@{images/icones/favicon.ico}">
 	</head>
-	<body ng-app="formasiga" ng-cloak>
+	<body  ng-app="formasiga" ng-cloak>
 	  		<md-content class="container">
  			    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" class="menu" >
 				      <md-nav-item md-nav-click="goto('login')" name="login">
@@ -43,8 +39,8 @@
 				        <a ui-sref="inscription" class="lien">Inscription</a>
 				      </md-nav-item>      
 			    </md-nav-bar>
-			    <div class="contenu"  ui-view>
-			    </div>
+			    <md-content class="contenu"  ui-view>
+			    </md-content>
 
   			</md-content>
 	</body>

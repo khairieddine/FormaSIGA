@@ -1,17 +1,17 @@
 <!-- Start section etablissement-ajouter -->
-<section class="etablissement-ajouter md-whiteframe-1dp" flex="80">
-	<md-toolbar class="md-theme-indigo titre-section">
+<section class="vues-section md-whiteframe-1dp" flex="80">
+	<md-toolbar class="md-theme-indigo vues-section-titre">
         <h1 class="md-toolbar-tools"><i class="fa fa-plus" aria-hidden="true"></i>  Ajouter un établissement</h1>
     </md-toolbar>
-	<md-content class="inscription-form">
-	<form
+    <form
+    	class		   = "vues-form"
 		method		   = "POST" 
-		name		   = "etablissementForm" 
-		formnovalidate = "novalidate">
-				  
-		<md-content layout="column">
+		name		   = "etablissementForm"
+		ng-submit	   = "ajouter()">
+		  
+		<md-content layout="column" class="vues-form-input">
 			<!-- **************************************************************************************************************************************************** -->
-			<md-content flex layout="row">
+			<md-content flex layout="row" class="form-group">
 				<div class="input-label md-body-2" flex="25">Nom de société</div>
 				
 				<div flex="5"></div>
@@ -25,8 +25,10 @@
 							autocomplete = "off"
 							name		 = "nom"
 							ng-model	 = "etablissement.nom"
-							ng-maxlength = "255" 
-							ng-pattern	 = "/^[a-z0-9_-]+$/">
+							maxlength	 = "50"
+							ng-maxlength = "50"
+							md-maxlength = "50"
+							ng-pattern	 = "/^[a-zA-Z -_]+$/i">
 						      	
 					<div class="hint" ng-if="showHints">
 						Ce champ est obligatoire.<br>
@@ -44,7 +46,7 @@
 				</md-input-container>
 			</md-content>
 			<!-- **************************************************************************************************************************************************** -->
-			<md-content flex layout="row">
+			<md-content flex layout="row" class="form-group">
 				<div class="input-label md-body-2" flex="25">Adresse</div>
 				
 				<div flex="5"></div>
@@ -55,23 +57,29 @@
 					<input
 							type		 = "text"  
 							required	 = "required"
+							autocomplete = "off"
 							name		 = "adresse"
 							ng-model	 = "etablissement.adresse"
-							ng-maxlength = "8" 
-							ng-pattern	 = "">
+							maxlength	 = "255"
+							ng-maxlength = "255"
+							md-maxlength = "255"
+							ng-pattern	 = "/^[a-zA-Z -_]+$/i">
 						      	
 					<div class="hint" ng-if="showHints">
 					</div>
 						      	
 					<div ng-messages="etablissementForm.adresse.$error" ng-if="!showHints">
 						<div ng-message="required">Ce champ est obligatoire.</div>
-						<div ng-message="maxlength"></div>
-						<div ng-message="pattern"></div>
+						<div ng-message="maxlength">L'adresse de société trop long.</div>
+						<div ng-message="pattern">
+							L'adresse de la société est invalide.<br>
+							vous pouvez utiliser des caractères alphanumériques en minuscules, des traits d'union et des barres de soulignement.
+						</div>
 					</div>
 				</md-input-container>
 			</md-content>
 			<!-- **************************************************************************************************************************************************** -->
-			<md-content flex layout="row">
+			<md-content flex layout="row" class="form-group">
 				<div class="input-label md-body-2" flex="25">ville</div>
 				
 				<div flex="5"></div>
@@ -97,7 +105,7 @@
 				</md-input-container>
 			</md-content>
 			<!-- **************************************************************************************************************************************************** -->
-			<md-content flex layout="row">
+			<md-content flex layout="row" class="form-group">
 				<div class="input-label md-body-2" flex="25">Téléphone</div>
 				
 				<div flex="5"></div>
@@ -110,7 +118,10 @@
 							required	 = "required"
 							name		 = "tele"
 							ng-model	 = "etablissement.tele"
-							ng-maxlength = "8" 
+							minlength	 = "8"
+							maxlength	 = "8"
+							ng-maxlength = "8"
+							md-maxlength = "8" 
 							ng-pattern	 = "/^[0-9]{8}$/">
 						      	
 					<div class="hint" ng-if="showHints">
@@ -124,7 +135,7 @@
 				</md-input-container>
 			</md-content>
 			<!-- **************************************************************************************************************************************************** -->
-			<md-content flex layout="row">
+			<md-content flex layout="row" class="form-group">
 				<div class="input-label md-body-2" flex="25">Fax</div>
 				
 				<div flex="5"></div>
@@ -150,7 +161,7 @@
 				</md-input-container>
 			</md-content>
 			<!-- **************************************************************************************************************************************************** -->
-			<md-content flex layout="row">
+			<md-content flex layout="row" class="form-group">
 				<div class="input-label md-body-2" flex="25">Adresse email</div>
 				
 				<div flex="5"></div>
@@ -175,7 +186,7 @@
 				</md-input-container>
 			</md-content>
 			<!-- **************************************************************************************************************************************************** -->
-			<md-content flex layout="row">
+			<md-content flex layout="row" class="form-group">
 				<div class="input-label md-body-2" flex="25">Site Web</div>
 				
 				<div flex="5"></div>
@@ -199,12 +210,12 @@
 				</md-input-container>
 			</md-content>
 			<!-- **************************************************************************************************************************************************** -->
-			<md-content flex layout="row" layout-align="center center" class="btn-valider">
-				<md-button type="submit" class="md-raised md-primary" ng-click="ajouter()">Ajouter</md-button>
-				<md-button type="reset" class="md-raised md-primary">Réinitialiser les champs</md-button>
-			</md-content>
+		</md-content>
+
+		<md-content flex layout="row" layout-align="center center" class="vues-form-btn">
+			<md-button type="submit" class="md-raised md-primary">Ajouter</md-button>
+			<md-button type="reset" class="md-raised md-primary">Réinitialiser les champs</md-button>
 		</md-content>
 	</form>
-	</md-content>
 </section>
 <!-- End section etablissement-ajouter -->

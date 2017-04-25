@@ -1,33 +1,34 @@
 <!-- Start section login -->
 <section class="login">
-	<div class="login-form  md-whiteframe-1dp">
-		<h1>FormaSIGA</h1>
+	<md-content class="login-form  md-whiteframe-1dp">
+		<!-- <h1>FormaSIGA</h1> -->
+		<img ng-src="/images/logo.png" class="image-logo"/>
 		<hr class="hr1"/>
-		<div>
-			<form method="POST"  th:action="formasiga">
-				<md-content layout="column" class="md-no-momentum">
+		<md-content>
+		<form method="POST"  th:action="formasiga">
+			<md-content layout="column">
 				
-				    <md-input-container class="md-icon-float md-block">
-				     	<label>Adresse e-mail ou mobile</label>
-				      	<md-icon  style="display:inline-block;"><i class="fa fa-user fa-2x" aria-hidden="true"></i></md-icon>
-				      	<input type="text" name="username">
-				    </md-input-container>
+				<md-input-container class="md-icon-float" flex>
+					<label>Adresse e-mail ou mobile</label>
+					<md-icon  style="display:inline-block;"><i class="fa fa-user fa-2x" aria-hidden="true"></i></md-icon>
+					<input type="text" name="username">
+				</md-input-container>
 				    
-				    <md-input-container class="md-icon-float md-block">
-				      	<label>Mot de passe</label>
-				      	<md-icon  style="display:inline-block;"><i class="fa fa-lock fa-2x" aria-hidden="true"></i></md-icon>
-				      	<input type="text" name="password">
-				    </md-input-container>
+				<md-input-container class="md-icon-float" flex>
+					<label>Mot de passe</label>
+					<md-icon  style="display:inline-block;"><i class="fa fa-lock fa-2x" aria-hidden="true"></i></md-icon>
+					<input type="text" name="password">
+				</md-input-container>
 				    
-				    <div layout="column" layout-align="center center" class="md-block">
-				        <md-button type="submit" style="display:inline-block;" class="md-raised md-primary">Connexion</md-button>
-				    </div>
+				<div layout="column" layout-align="center center">
+					<md-button type="submit" class="md-raised md-primary">Connexion</md-button>
+				</div>
 					
-				</md-content>
-			</form>
-		</div>
+			</md-content>
+		</form>
+		</md-content>
 		<hr class="hr2"/>
-		<div>
+		<md-content>
 			<p>
 				Tu n'est pas membre ? 
 				<a ui-sref="inscription">Inscription</a>
@@ -35,7 +36,7 @@
 			<p>
 				<a ui-sref="inscription">Informations de compte oubliées ?</a>
 			</p>
-		</div>
-	</div>
+		</md-content>
+	</md-content>
 </section>
 <!-- End section login -->

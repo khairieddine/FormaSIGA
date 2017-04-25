@@ -77,7 +77,7 @@ public class MenuControleur
 
 		Map<String,Object> params =new HashMap<>();
 		params.put("identifiant",username);
-		params.put("avatar","");
+		params.put("avatar","/images/user.jpg");
 		params.put("roles",roles);
 		params.put("menu",menu);
 		return params;

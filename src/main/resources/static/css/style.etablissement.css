@@ -1,0 +1,88 @@
+.popover
+{
+	position:relative;
+    z-index: 14px;
+}
+.popover:hover .popover-contenu
+{
+	display:block;
+}
+.popover > .popover-contenu
+{
+	display:none;
+	position:absolute;
+	top:0;
+	right:100%;
+	min-width:300px;
+	height:auto;
+	padding : 10px;
+	background-color: #fff;
+	border-radius:3px;
+	z-index: 15px;
+	
+	border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.popover > .popover-contenu:before
+{
+	content : "";
+	position: absolute;
+	top:7px;
+	right:-10px;
+
+    border-width: 10px 0px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #ccc ;
+
+    z-index: 15;
+}
+.popover > .popover-contenu:after
+{
+	content : "";
+	position: absolute;
+	top:8px;
+	right:-8px;
+
+    border-width: 9px 0px 9px 9px;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff ;
+
+    z-index: 16;
+}
+.popover > .popover-contenu > p
+{
+	font-size: 13px;
+}
+.popover > .popover-contenu > p > span
+{
+	color:red;
+}
+.popover > .md-button
+{
+	padding: 3px 15px;
+	border-radius: 4px;
+	text-transform: none;
+}
+.popover > .md-button > .fa,
+.md-button > .fa
+{
+	margin-right: 5px;
+}
+.td-fix
+{
+	width: 100px;
+}
+
+.vues-section-etablissement
+{
+	overflow: hidden;
+	margin-bottom: 250px;
+}
+.vues-dialog
+{
+	min-width: 700px;
+}
+.td-padding > td
+{
+	padding: 5px 15px !important;
+}

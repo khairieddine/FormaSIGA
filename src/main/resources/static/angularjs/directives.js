@@ -1,4 +1,4 @@
-app.directive('ngThumb', ['$window', function($window) {
+formasiga.directive('ngThumb', ['$window', function($window) {
         var helper = {
             support: !!($window.FileReader && $window.CanvasRenderingContext2D),
             isFile: function(item) {

@@ -1,7 +1,7 @@
 
-app.controller('uploader', ['$scope', 'FileUploader', function($scope, FileUploader) {
+formasiga.controller('uploader', ['$scope', 'FileUploader', function($scope, FileUploader) {
         var uploader = $scope.uploader = new FileUploader({
-            url: 'http://localhost:8080/upload'
+            url: 'http://localhost:8080/transfer'
         });
 
         // FILTERS

@@ -1,0 +1,126 @@
+.vues-section
+{
+	background-color: #fff;
+	margin: 50px 0;
+}
+.vues-section > .vues-section-titre,
+.vues-dialog > .vues-section-titre
+{
+    background-color: #367fa9;
+    height: 45px;
+    min-height: 45px;
+}
+.vues-section > .vues-section-titre > h1 > .fa,
+.vues-dialog > .vues-section-titre > h1 > .fa
+{
+	margin-right: 10px;
+}
+.vues-section md-content,
+.vues-dialog md-content
+{
+	background-color: #fff;
+}
+/**************************************************************************************************************
+*
+**                                              Style section vues-section
+*
+***************************************************************************************************************/
+.vues-section > .vues-form,
+.vues-dialog > .vues-form
+{
+	overflow: hidden;
+}
+.vues-section > .vues-form > .vues-form-input,
+.vues-dialog > .vues-form > .vues-form-input
+{
+	padding: 20px 25px 15px 25px;
+	overflow: hidden;
+}
+.vues-section > .vues-form > .vues-form-input > .form-group,
+.vues-dialog > .vues-form > .vues-form-input > .form-group
+{
+	overflow: hidden;
+}
+.vues-section > .vues-form > .vues-form-input > .form-group > .input-label,
+.vues-dialog > .vues-form > .vues-form-input > .form-group > .input-label
+{
+	height : 94px;
+	line-height: 84px;
+	text-align: right;
+	font-weight: bold;
+	font-size: 14px;
+}
+.vues-section > .vues-form > .vues-form-input > .form-group > md-input-container,
+.vues-dialog > .vues-form > .vues-form-input > .form-group > md-input-container
+{
+	padding-right: 50px;
+}
+.vues-section > .vues-form > .vues-form-btn,
+.vues-dialog > .vues-form > .vues-form-btn
+{
+	padding: 10px;
+	margin-top : 50px;
+	border-top: 1px solid #dddfe2;
+}
+.vues-section > .vues-form > .vues-form-btn > .md-button,
+.vues-dialog > .vues-form > .vues-form-btn > .md-button
+{
+	padding: 3px 20px !important;
+}
+/**************************************************************************************************************
+*
+**                                              Style section vues-section-tableau
+*
+***************************************************************************************************************/
+.vues-section-tableau
+{
+	background-color: red;
+}
+.vues-section > .vues-section-tableau > table
+{
+	border-collapse:collapse;
+	width: 100%;
+	color:#1d2129;
+}
+.vues-section > .vues-section-tableau > table > thead
+{
+    border-bottom: 2px solid #ddd;
+}
+.vues-section > .vues-section-tableau > table > thead > tr > th,
+.vues-section > .vues-section-tableau > table > tbody > tr > td
+{
+	padding: 15px;
+    border-left: 1px solid #e4e6ea;
+}
+.vues-section > .vues-section-tableau > table > tbody > tr:NTH-CHILD(odd)
+{
+	background-color: #f9f9f9;
+	background-color: #f6f7f9;
+}
+.vues-section > .vues-section-tableau > table > tbody > tr:hover
+{
+	background-color: #e9e9e9;
+}
+/**************************************************************************************************************
+*
+**                                              Style section btn
+*
+***************************************************************************************************************/
+.btn-info
+{
+    color: #fff !important;
+    background-color: #5bc0de !important;
+    border-color: #46b8da !important;
+}
+.btn-success
+{
+	color: #fff !important;
+    background-color: #5cb85c !important;
+    border-color: #4cae4c !important;
+}
+.btn-danger
+{
+    color: #fff !important;
+    background-color: #d9534f !important;
+    border-color: #d43f3a !important;
+}

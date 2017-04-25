@@ -1,1 +1,57 @@
-<h1>themeNouveau</h1>
+<!-- Start section theme-ajouter -->
+<section class="theme-ajouter md-whiteframe-1dp" flex="80">
+	<md-toolbar class="md-theme-indigo titre-section">
+        <h1 class="md-toolbar-tools"><i class="fa fa-plus" aria-hidden="true"></i>Nouveau théme</h1>
+    </md-toolbar>
+	<md-content class="theme-form">
+	<form
+		method		   = "POST" 
+		name		   = "themeForm"
+		ng-submit	   = "ajouter()">
+				  
+		<md-content layout="column">
+			<!-- **************************************************************************************************************************************************** -->
+			<md-content flex layout="row">
+				<div class="input-label md-body-2" flex="25">Théme</div>
+				
+				<div flex="5"></div>
+				
+				<md-input-container flex="80">
+					<label>Nom de société</label>
+					
+					<input
+							type		 = "text"  
+							required	 = "required"
+							autocomplete = "off"
+							name		 = "nom"
+							ng-model	 = "etablissement.nom"
+							maxlength	 = "50"
+							ng-maxlength = "50"
+							md-maxlength = "50"
+							ng-pattern	 = "/^[a-zA-Z -_]+$/i">
+						      	
+					<div class="hint" ng-if="showHints">
+						Ce champ est obligatoire.<br>
+						Si vous le remplissez, merci de mettre une information exacte.<br>
+					</div>
+						      	
+					<div ng-messages="etablissementForm.nom.$error" ng-if="!showHints">
+						<div ng-message="required">Ce champ est obligatoire.</div>
+						<div ng-message="maxlength">Nom de la société trop long.</div>
+						<div ng-message="pattern">
+							Le nom de la société est invalide.<br>
+							vous pouvez utiliser des caractères alphanumériques en minuscules, des traits d'union et des barres de soulignement.
+						</div>
+					</div>
+				</md-input-container>
+			</md-content>
+			<!-- **************************************************************************************************************************************************** -->
+			<md-content flex layout="row" layout-align="center center" class="btn-valider">
+				<md-button type="submit" class="md-raised md-primary">Ajouter</md-button>
+				<md-button type="reset" class="md-raised md-primary">Réinitialiser les champs</md-button>
+			</md-content>
+		</md-content>
+	</form>
+	</md-content>
+</section>
+<!-- End section theme-ajouter -->

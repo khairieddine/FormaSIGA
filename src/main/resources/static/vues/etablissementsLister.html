@@ -1,9 +1,21 @@
+<!-- Start section loading -->
+<section ng-show="loading" class="loader loading">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</section>
+<!-- End section loading -->
 <!-- Start section etablissement-lister -->
-<section class="etablissement-lister md-whiteframe-1dp" flex="80">
-	<md-toolbar class="md-theme-indigo titre-section">
+<section ng-show="!loading" class="vues-section md-whiteframe-1dp" flex="80">
+	<md-toolbar class="md-theme-indigo vues-section-titre">
         <h1 class="md-toolbar-tools"><i class="fa fa-list" aria-hidden="true"></i>Liste des établissements</h1>
     </md-toolbar>
-	<md-content class="liste" layout="column">
+	<md-content class="vues-section-tableau" layout="column">
 		<table flex="100">
 			<thead>
 				<tr>

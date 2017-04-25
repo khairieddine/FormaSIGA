@@ -1,6 +1,6 @@
-var app = angular.module('formasiga',['ngMaterial','ui.router','ngMessages','angularFileUpload']);
+var formasiga = angular.module('formasiga',['ngMaterial','ui.router','ngMessages','angularFileUpload']);
 
-app.config(function($stateProvider, $urlRouterProvider) {
+formasiga.config(function($stateProvider, $urlRouterProvider) {
 
 	  $urlRouterProvider.otherwise("login");
  
@@ -22,19 +22,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	    })
 	});
 
-app.controller("imagesController",["$scope","$http",function($scope,$http) {
+formasiga.controller("imagesController",["$scope","$http",function($scope,$http) {
 	
 	
 
 }]);
 
-app.controller("menu",["$scope","$http",function($scope,$http) {
+formasiga.controller("menu",["$scope","$http",function($scope,$http) {
 	
 	$scope.currentNavItem = 'login';
 
 }]);
 
-app.controller("loginController",["$scope","$http",function($scope,$http) {
+formasiga.controller("loginController",["$scope","$http",function($scope,$http) {
 
 	console.log("loginController");
 	
@@ -50,7 +50,7 @@ app.controller("loginController",["$scope","$http",function($scope,$http) {
 //	   });
 }]);
 
-app.controller("inscriptionController",["$scope","$http",function($scope,$http) {
+formasiga.controller("inscriptionController",["$scope","$http",function($scope,$http) {
 
 	$scope.showHints = false;
 	$scope.employe = {};

@@ -1,0 +1,211 @@
+<!-- Start section etablissement-modifier -->
+<md-dialog class="vues-dialog">
+	<md-toolbar class="md-theme-indigo vues-section-titre">
+		<h1 class="md-toolbar-tools"><i class="fa fa-wrench" aria-hidden="true"></i>Modifier un établissement</h1>
+	</md-toolbar>
+	<form
+		class		    = "vues-form"
+		method			= "POST" 
+		name			= "nouveauEtablissementForm" 
+		formnovalidate 	= "novalidate">
+		
+		<md-dialog-content layout="column" class="vues-form-input">		  
+			<!-- **************************************************************************************************************************************************** -->
+			<md-content flex layout="row" class="form-group">
+				<div class="input-label md-body-2" flex="25">Nom de société</div>
+							
+				<div flex="5"></div>
+							
+				<md-input-container flex="80">
+					<label>Nom de société</label>
+								
+					<input
+						type		 = "text"  
+						required	 = "required"
+						autocomplete = "off"
+						name		 = "nom"
+						ng-model	 = "nouveauEtablissement.nom"
+						ng-maxlength = "255" 
+						ng-pattern	 = "/^[a-z0-9_-]+$/">
+									      	
+					<div class="hint" ng-if="showHints">
+						Ce champ est obligatoire.<br>
+						Si vous le remplissez, merci de mettre une information exacte.<br>
+					</div>
+									      	
+					<div ng-messages="nouveauEtablissementForm.nom.$error" ng-if="!showHints">
+						<div ng-message="required">Ce champ est obligatoire.</div>
+						<div ng-message="maxlength">Nom de la société trop long.</div>
+						<div ng-message="pattern">
+							Le nom de la société est invalide.<br>
+							vous pouvez utiliser des caractères alphanumériques en minuscules, des traits d'union et des barres de soulignement.
+						</div>
+					</div>
+				</md-input-container>
+			</md-content>
+			<!-- **************************************************************************************************************************************************** -->
+						<md-content flex layout="row" class="form-group">
+							<div class="input-label md-body-2" flex="25">Adresse</div>
+							
+							<div flex="5"></div>
+							
+							<md-input-container flex="80">
+								<label>Adresse de société</label>
+								
+								<input
+										type		 = "text"  
+										required	 = "required"
+										name		 = "adresse"
+										ng-model	 = "nouveauEtablissement.adresse"
+										ng-maxlength = "8" 
+										ng-pattern	 = "">
+									      	
+								<div class="hint" ng-if="showHints">
+								</div>
+									      	
+								<div ng-messages="nouveauEtablissementForm.adresse.$error" ng-if="!showHints">
+									<div ng-message="required">Ce champ est obligatoire.</div>
+									<div ng-message="maxlength"></div>
+									<div ng-message="pattern"></div>
+								</div>
+							</md-input-container>
+						</md-content>
+						<!-- **************************************************************************************************************************************************** -->
+						<md-content flex layout="row" class="form-group">
+							<div class="input-label md-body-2" flex="25">ville</div>
+							
+							<div flex="5"></div>
+							
+							<md-input-container flex="80">
+								<label>Choisissez une ville</label>
+							
+								<md-select
+											required	= "required"
+											name		= "ville" 
+											ng-model	= "nouveauEtablissement.ville">
+											
+									<md-option ng-repeat="ville in villes" value="{{ville}}">
+										{{ville}}
+									</md-option>
+								</md-select>
+									      	
+								<div class="hint" ng-if="showHints"></div>
+									      	
+								<div ng-messages="nouveauEtablissementForm.ville.$error" ng-if="!showHints">
+									<div ng-message="required">Ce champ est obligatoire.</div>
+								</div>
+							</md-input-container>
+						</md-content>
+						<!-- **************************************************************************************************************************************************** -->
+						<md-content flex layout="row" class="form-group">
+							<div class="input-label md-body-2" flex="25">Téléphone</div>
+							
+							<div flex="5"></div>
+							
+							<md-input-container flex="80">
+								<label>Numéro de téléphone</label>
+								
+								<input
+										type		 = "tele"  
+										required	 = "required"
+										name		 = "tele"
+										ng-model	 = "nouveauEtablissement.tele"
+										ng-maxlength = "8" 
+										ng-pattern	 = "/^[0-9]{8}$/">
+									      	
+								<div class="hint" ng-if="showHints">
+								</div>
+									      	
+								<div ng-messages="nouveauEtablissementForm.tele.$error" ng-if="!showHints">
+									<div ng-message="required">Ce champ est obligatoire.</div>
+									<div ng-message="maxlength"></div>
+									<div ng-message="pattern"></div>
+								</div>
+							</md-input-container>
+						</md-content>
+						<!-- **************************************************************************************************************************************************** -->
+						<md-content flex layout="row" class="form-group">
+							<div class="input-label md-body-2" flex="25">Fax</div>
+							
+							<div flex="5"></div>
+							
+							<md-input-container flex="80">
+								<label>Numéro de fax </label>
+								
+								<input
+										type		 = "tel"  
+										required	 = "required"
+										name		 = "fax"
+										ng-model	 = "nouveauEtablissement.fax" 
+										ng-maxlength = "8" 
+										ng-pattern	 = "/^[0-9]{8}$/">
+									      	
+								<div class="hint" ng-if="showHints"></div>
+									      	
+								<div ng-messages="nouveauEtablissementForm.fax.$error" ng-if="!showHints">
+									<div ng-message="required">Ce champ est obligatoire.</div>
+									<div ng-message="maxlength"></div>
+									<div ng-message="pattern"></div>
+								</div>
+							</md-input-container>
+						</md-content>
+						<!-- **************************************************************************************************************************************************** -->
+						<md-content flex layout="row" class="form-group">
+							<div class="input-label md-body-2" flex="25">Adresse email</div>
+							
+							<div flex="5"></div>
+							
+							<md-input-container flex="80">
+								<label>Adresse email professionnelle</label>
+								
+								<input
+										type		 = "email"  
+										required	 = "required"
+										name		 = "email"
+										ng-model	 = "nouveauEtablissement.email" 
+										ng-pattern	 = "">
+									      	
+								<div class="hint" ng-if="showHints">
+								</div>
+									      	
+								<div ng-messages="nouveauEtablissementForm.email.$error" ng-if="!showHints">
+									<div ng-message="required">Ce champ est obligatoire.</div>
+									<div ng-message="pattern"> </div>
+								</div>
+							</md-input-container>
+						</md-content>
+						<!-- **************************************************************************************************************************************************** -->
+						<md-content flex layout="row" class="form-group">
+							<div class="input-label md-body-2" flex="25">Site Web</div>
+							
+							<div flex="5"></div>
+							
+							<md-input-container flex="80">
+								<label>Lien vers le site web de la Société</label>
+								
+								<input
+										type		 = "url"  
+										required	 = "required"
+										name		 = "siteWeb"
+										ng-model	 = "nouveauEtablissement.siteWeb" 
+										ng-pattern	 = "">
+									      	
+								<div class="hint" ng-if="showHints"></div>
+									      	
+								<div ng-messages="nouveauEtablissementForm.siteWeb.$error" ng-if="!showHints">
+									<div ng-message="required">Ce champ est obligatoire.</div>
+									<div ng-message="pattern"></div>
+								</div>
+							</md-input-container>
+						</md-content>
+						<!-- **************************************************************************************************************************************************** -->
+					</md-content>
+		</md-dialog-content>
+		<md-dialog-actions layout="row" class="vues-form-btn">
+			<md-button class="md-raised md-primary" ng-click="modifier()">Modifier</md-button>
+			<md-button class="md-raised md-primary" ng-click="cancel()">Ignorer</md-button>
+		</md-dialog-actions>
+	</form>
+
+</md-dialog>
+<!-- End section etablissement-modifier -->

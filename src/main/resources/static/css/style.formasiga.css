@@ -2,10 +2,14 @@ body
 {
 	background-color: #f5f5f5;
 }
+.image-logo
+{
+	margin: auto;
+	display: block;
+}
 .lien
 {
 	color : #fff;
-	/*background-color: yellow;*/
 	text-decoration: none;
 	display: block;
 }
@@ -14,14 +18,12 @@ md-content
 {
 	background-color: #f5f5f5;
 }
+
 md-nav-bar.md-default-theme .md-nav-bar,
 md-nav-bar .md-nav-bar 
 {
 	background-color: #367fa9;
 }
-/* .md-button.md-default-theme.md-accent, */
-/* .md-button.md-accent  */
-
 
 md-nav-bar.md-default-theme md-nav-ink-bar,
 md-nav-bar md-nav-ink-bar
@@ -29,9 +31,9 @@ md-nav-bar md-nav-ink-bar
 	color : #fff !important;
 	background : #fff !important;
 }
+
 .contenu
 {
-	/*background-color: red;*/
 	padding: 70px;
 }
 .contenu md-content

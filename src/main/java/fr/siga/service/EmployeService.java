@@ -70,7 +70,7 @@ public class EmployeService
 		ur.save(utilisateur);
 		
 		Optional<Utilisateur> ui = ur.findOne(emp.getIdentifiant());
-		Optional<Role> ri = rr.findOne("EMPLOYE");
+		Optional<Role> ri = rr.findOne("RESPONSABLE");
 		
 		ui.get().getRoles().add(ri.get());
 		ui.get().setEmploye(emp);
